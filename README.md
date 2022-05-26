@@ -100,12 +100,12 @@ See an example is here to define the content types **ContentType.swift**
 ```    
 
 
-## Package installation
+## Package installation 
 In Xcode - Select `Xcode`>`File`> `Swift Packages`>`Add Package Dependency...`  
 and add `https://github.com/The-Igor/d3-network-service`.
 
 
-## Server instalation
+## Server instalation (NodeJS Express)
 To try it in the real environment. I suggest installing the basic NodeJS Express boilerplate. Take a look on the video snippet how easy it is to get it through Webstorm that is accessible for free for a trial period.
 
 Get **index.js** file from here and replace it with the one in the boilerplate and luanch the server.
