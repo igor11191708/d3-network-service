@@ -52,7 +52,7 @@ Extend the enum with interface [**IRequest**](https://github.com/The-Igor/d3-net
 | parameters | [IRequestParameter]  |  |
 
             
-See the implemetation example is here **UserRestAPI.swift**
+See the implemetation example here **UserRestAPI.swift**
 [**UserRestAPI.swift**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/example/config/UserRestAPI.swift)
 
 ### Parameters
