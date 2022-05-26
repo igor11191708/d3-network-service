@@ -1,5 +1,5 @@
 //
-//  PaginationParameter.swift
+//  Pagination.swift
 //
 //
 //  Created by Igor Shelopaev on 25.05.2022.

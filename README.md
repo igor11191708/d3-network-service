@@ -11,7 +11,7 @@ Reactive wrapper for **URLSession.shared.dataTaskPublisher** to create different
 
 
 ## 1. Environment
-Define **enum** with interface **IEnvironment**
+Define **enum** with interface [**IEnvironment**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/protocol/data/IEnvironment.swift)
 
 ```swift
 enum Environment: IEnvironment {
@@ -42,7 +42,7 @@ enum UserRestAPI {
 }
 ```
 
-Extend the enum with interface **IRequest** 
+Extend the enum with interface [**IRequest**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/protocol/data/IRequest.swift)
 
 | field | type | requared |
 | --- | --- | --- |
@@ -53,16 +53,17 @@ Extend the enum with interface **IRequest**
 
             
 See the implemetation example is here **UserRestAPI.swift**
+[**UserRestAPI.swift**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/example/config/UserRestAPI.swift)
 
 ### Parameters
-All parameters for a request have to conform to the interface **IRequestParameter**
+All parameters for a request have to conform to the interface [**IRequestParameter**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/protocol/data/IRequestParameter.swift)
 
-See an example is here to define the pagination params **Pagination.swift**
+See an example is here the defined pagination params [**Pagination.swift**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/enum/Pagination.swift)
 
 ### Request headers
-All headers for a request have to conform to the interface **IRequestHeader**
+All headers for a request have to conform to the interface [**IRequestHeader**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/protocol/data/IRequestHeader.swift)
 
-See an example is here to define the content types **ContentType.swift**
+See an example is here the defined content types [**ContentType.swift**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/enum/ContentType.swift)
 
 ## 3. Create network sevice
 ```swift

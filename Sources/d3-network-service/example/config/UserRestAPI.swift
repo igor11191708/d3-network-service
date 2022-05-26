@@ -1,5 +1,5 @@
 //
-//  UserEndpoint.swift
+//  UserRestAPI.swift
 //
 //  Created by Igor Shelopaev on 25.05.2022.
 //

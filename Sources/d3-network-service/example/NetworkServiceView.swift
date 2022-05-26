@@ -13,7 +13,6 @@ public struct NetworkServiceView: View {
     
     public init(){ }
 
-
     public var body: some View {
         VStack(spacing: 15) {
 
