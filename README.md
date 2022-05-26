@@ -10,7 +10,7 @@ Reactive wrapper for **URLSession.shared.dataTaskPublisher** to create different
 
 
 
-##1. Environment
+## 1. Environment
 Define **enum** with interface **IEnvironment**
 
 ```swift
@@ -29,7 +29,7 @@ enum Environment: IEnvironment {
 }
 ```
 
-##2. API for endpoint
+## 2. API for endpoint
 Define endpoint API **enum** 
 
 enum UserRestAPI {
@@ -63,7 +63,7 @@ All headers for a request have to conform to the interface **IRequestHeader**
 
 See an example is here to define the content types **ContentType.swift**
 
-##3. Create network sevice
+## 3. Create network sevice
 ```swift
     let network = NetworkService(
         environment: Environment.development)
