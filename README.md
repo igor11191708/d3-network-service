@@ -31,7 +31,7 @@ enum Environment: IEnvironment {
 
 ## 2. API for endpoint
 Define endpoint API **enum** 
-
+```swift
 enum UserRestAPI {
 
     case index(page: Int?)
@@ -40,6 +40,7 @@ enum UserRestAPI {
     case update
     case delete(id: Int)
 }
+```
 
 Extend the enum with interface **IRequest** 
 
