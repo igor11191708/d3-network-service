@@ -54,12 +54,12 @@ Extend the enum with interface **IRequest**
             
 See the implemetation example is here **UserRestAPI.swift**
 
-## Parameters
+### Parameters
 All parameters for a request have to conform to the interface **IRequestParameter**
 
 See an example is here to define the pagination params **Pagination.swift**
 
-## Request headers
+### Request headers
 All headers for a request have to conform to the interface **IRequestHeader**
 
 See an example is here to define the content types **ContentType.swift**
