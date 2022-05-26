@@ -1,4 +1,6 @@
-# Network service (Combine) Rest, GRUD
+# Network service (Combine) 
+## Network requests GET, POST, PUT, DELETE
+## Rest API GRUD operations
 
 Reactive wrapper for **URLSession.shared.dataTaskPublisher** to create different set of network requests like GET, POST, PUT, DELETE
 
