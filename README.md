@@ -30,7 +30,7 @@ enum Environment: IEnvironment {
 }
 ```
 
-## 2. API for endpoint
+## 2. REST API for endpoint
 Define endpoint API **enum** 
 ```swift
 enum UserRestAPI {
