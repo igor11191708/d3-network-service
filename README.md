@@ -102,7 +102,7 @@ See an example is here to define the content types **ContentType.swift**
 
 ## Package installation
 In Xcode - Select `Xcode`>`File`> `Swift Packages`>`Add Package Dependency...`  
-and add `https://github.com/The-Igor/d3_network_service`.
+and add `https://github.com/The-Igor/d3-network-service`.
 
 
 ## Server instalation
