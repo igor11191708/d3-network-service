@@ -67,8 +67,7 @@ See an example is here the defined content types [**ContentType.swift**](https:/
 
 ## 3. Create network sevice
 ```swift
-    let network = NetworkService(
-        environment: Environment.development)
+    let network = NetworkService(environment: Environment.development)
 ```
 ### Read
 
