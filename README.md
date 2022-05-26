@@ -7,7 +7,7 @@ Reactive wrapper for **URLSession.shared.dataTaskPublisher** to create different
 - [x] Stand alone package without any dependencies using just Apple's **Combine** facilities
 - [x] Error handling from forming URLRequest object to gettting data on a subscription
 - [x] Customizable for different environments development, production, testing
-- [x] Customizable for different requests schemes from classic **GRUD Rest** to what suits to your own requirements
+- [x] Customizable for different requests schemes from classic **CRUD Rest** to what suits to your own requirements
 
 
 
