@@ -111,7 +111,7 @@ The example implemetation is here **UserRestAPI.swift**
 There are four methods are available currently  GET, POST, PUT, DELETE
 
 ### Parameters
-Pass a [String: CustomStringConvertible] dictionary to the params parameter that avalable for GET, POST, PUT requests
+Pass a [String: CustomStringConvertible] dictionary to the parameter that avalable for GET, POST, PUT requests
 
 ### Read
 
