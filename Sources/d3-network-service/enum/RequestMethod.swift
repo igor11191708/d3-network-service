@@ -8,6 +8,7 @@
 import Foundation
 
 /// Http methods
+@available(iOS 15, macOS 12.0, *)
 public enum RequestMethod: String {
 
     case get = "GET"

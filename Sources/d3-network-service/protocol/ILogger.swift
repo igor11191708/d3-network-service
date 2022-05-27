@@ -8,6 +8,7 @@
 import Foundation
 
 /// Logger interface
+@available(iOS 15, macOS 12.0, *)
 public protocol ILogger {
 
     

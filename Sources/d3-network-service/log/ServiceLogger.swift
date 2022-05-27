@@ -8,6 +8,8 @@
 import Foundation
 
 
+/// Standard loger
+@available(iOS 15, macOS 12.0, *)
 public struct ServiceLogger: ILogger {
 
     public init(){ }

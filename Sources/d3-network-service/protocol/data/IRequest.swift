@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 /// Defines an interface to create `URLRequest`
+@available(iOS 15, macOS 12.0, *)
 public protocol IRequest {
 
     /// The path that will be appended to API's base URL.

@@ -8,6 +8,7 @@
 import Foundation
 
 /// Header interface
+@available(iOS 15, macOS 12.0, *)
 public protocol IRequestHeader {
         
     /// Key field for a header

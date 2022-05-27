@@ -8,6 +8,7 @@
 import Foundation
 
 /// Protocol for environment **development, production**
+@available(iOS 15, macOS 12.0, *)
 public protocol IEnvironment {
     
     /// The base URL of the environment

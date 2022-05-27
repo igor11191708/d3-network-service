@@ -10,6 +10,7 @@ import Foundation
 
 
 /// Define interface of service to create network requests
+@available(iOS 15, macOS 12.0, *)
 public protocol INetworkService {
 
     /// Logger
