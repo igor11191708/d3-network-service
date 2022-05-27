@@ -27,14 +27,12 @@ public protocol INetworkService {
 
     func execute<Output: Decodable>(
         with request: IRequest,
-        _ parameters: RequestParameters?
-    ) -> AnyPublisher<Output, ServiceError>
+        _ parameters: RequestParameters?) -> AnyPublisher<Output, ServiceError>
 
     func execute<Input : Encodable, Output : Decodable>(
         body: Input,
         with request: IRequest,
-        _ parameters: RequestParameters?
-    ) -> AnyPublisher<Output, ServiceError>
+        _ parameters: RequestParameters?) -> AnyPublisher<Output, ServiceError>
 
 }
 
@@ -48,9 +46,7 @@ public extension INetworkService {
     /// - Returns: Erased publisher with decoded output and
     func execute<Output: Decodable>(
         with request: IRequest,
-        _ parameters: RequestParameters? = nil)
-        -> AnyPublisher<Output, ServiceError>
-    {
+        _ parameters: RequestParameters? = nil) -> AnyPublisher<Output, ServiceError> {
         if request.method == .get {
             return get(with: request, parameters)
         }
@@ -72,8 +68,7 @@ public extension INetworkService {
     func execute<Input : Encodable, Output : Decodable>(
         body: Input,
         with request: IRequest,
-        _ parameters: RequestParameters? = nil
-    ) -> AnyPublisher<Output, ServiceError>
+        _ parameters: RequestParameters? = nil) -> AnyPublisher<Output, ServiceError>
     {
         if request.method == .post {
             return post(body: body, with: request, parameters)

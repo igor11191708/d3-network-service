@@ -19,9 +19,7 @@ extension INetworkService {
     func put<Input : Encodable, Output : Decodable>(
         body: Input,
         with request: IRequest,
-        _ parameters: RequestParameters? = nil)
-        -> AnyPublisher<Output, ServiceError>
-    {
+        _ parameters: RequestParameters? = nil) -> AnyPublisher<Output, ServiceError>{
         return doRequest(body: body, with: request, parameters)
             .decode(with: self.decoder)
             .mapServiceError()

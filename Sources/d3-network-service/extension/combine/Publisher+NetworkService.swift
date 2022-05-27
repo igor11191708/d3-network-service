@@ -13,6 +13,7 @@ extension Publisher where Output == URLSession.DataTaskPublisher.Output {
     /// Transforms all elements from the upstream publisher with a provided error-throwing closure
     /// - Returns: A publisher that uses the provided closure to map elements from the upstream publisher to new elements that it then publishes
     func tryResponse() -> Publishers.TryMap<Self, Data> {
+
         tryMap { data, response -> Data in
 
             guard let httpResponse = response as? HTTPURLResponse else {
@@ -32,9 +33,8 @@ extension Publisher where Output == Data {
 
     /// Decodes the output from the upstream using a specified decoder
     /// - Returns: A publisher that decodes a given type using a specified decoder and publishes the result
-    func decode<T: Decodable, D: TopLevelDecoder>(with decoder: D)
-        -> Publishers.Decode<Self, T, D>
-    {
+    func decode<T: Decodable, D: TopLevelDecoder>(with decoder: D) -> Publishers.Decode<Self, T, D> {
+
         decode(type: T.self, decoder: decoder)
     }
 }
@@ -44,6 +44,7 @@ extension Publisher {
     /// Converts any failure from the upstream publisher into a new ``ServiceError``
     /// - Returns: A publisher that replaces any upstream failure with a new error produced by the transform closure
     func mapServiceError() -> Publishers.MapError<Self, ServiceError> {
+
         mapError { error -> ServiceError in
 
             guard let definedError = error as? ServiceError else {

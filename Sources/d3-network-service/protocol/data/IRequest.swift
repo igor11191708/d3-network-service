@@ -27,9 +27,7 @@ extension IRequest {
     func urlRequest(
         with environment: IEnvironment,
         body: Data,
-        _ parameters: RequestParameters? = nil)
-        -> URLRequest?
-    {
+        _ parameters: RequestParameters? = nil) -> URLRequest? {
 
         guard var request = urlRequest(with: environment, parameters)else {
             return nil
@@ -43,9 +41,9 @@ extension IRequest {
     /// Create a URLRequest
     /// - Parameter environment: The environment where `URLRequest` happens
     /// - Returns: An optional `URLRequest`
-    func urlRequest(with environment: IEnvironment, _ parameters: RequestParameters? = nil)
-        -> URLRequest?
-    {
+    func urlRequest(
+        with environment: IEnvironment,
+        _ parameters: RequestParameters? = nil) -> URLRequest? {
 
         guard let url = url(with: environment.baseURL, parameters) else {
             return nil

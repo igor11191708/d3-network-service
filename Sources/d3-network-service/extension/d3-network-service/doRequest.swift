@@ -13,9 +13,7 @@ extension INetworkService {
     /// Performe request
     /// - Parameter request: Request data
     /// - Returns: Erased publisher with raw output and  ``ServiceError``  for failure
-    func doRequest(_ request: URLRequest)
-        -> AnyPublisher<Data, ServiceError>
-    {
+    func doRequest(_ request: URLRequest) -> AnyPublisher<Data, ServiceError>{
         let urlSession = getURLSession()
 
         return urlSession
@@ -33,9 +31,7 @@ extension INetworkService {
     func doRequest<Input : Encodable>(
         body: Input,
         with request: IRequest,
-        _ parameters: RequestParameters? = nil
-    ) -> AnyPublisher<Data, ServiceError>
-    {
+        _ parameters: RequestParameters? = nil) -> AnyPublisher<Data, ServiceError>{
         var httpBody: Data
 
         /// prepare body
