@@ -145,7 +145,7 @@ Pass a [String: CustomStringConvertible] dictionary to the parameter that avalab
 
 ## Package installation 
 In Xcode - Select `Xcode`>`File`> `Swift Packages`>`Add Package Dependency...`  
-and add `https://github.com/The-Igor/d3-network-service`.
+and add `https://github.com/The-Igor/d3-network-service`
 
 
 ## Try it in the real environment
