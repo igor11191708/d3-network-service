@@ -15,5 +15,8 @@ public protocol IEnvironment {
     
     /// The default HTTP request headers for the environment
     var headers: [IRequestHeader]? { get }
+        
+    /// Service logger
+    var logger : ILogger? { get }
 }
 

@@ -9,7 +9,7 @@ Reactive wrapper for **URLSession.shared.dataTaskPublisher** to create different
 - [x] Customizable for different environments development, production, testing
 - [x] Customizable for different requests schemes from classic **CRUD Rest** to what suits to your own requirements
 - [x] Based on interfaces not implementations
-
+- [x] Ability to log and customize logers for different environment
 
 ## 1. Environment
 Define **enum** with interface [**IEnvironment**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/protocol/data/IEnvironment.swift)
@@ -32,6 +32,13 @@ enum Environment: IEnvironment {
         switch self {
             case .development: return [ContentType.applicationJSON]
             case .production: return [ContentType.textJSON]
+        }
+    }
+    
+    var logger : ILogger? {
+        switch self {
+            case .development: return ServiceLogger()
+            case .production: return nil
         }
     }  
 }

@@ -12,6 +12,8 @@ import Combine
 /// Network service to perform GET, POST, PUT, DELETE requests
 public struct NetworkService<D: TopLevelDecoder, E : TopLevelEncoder>: INetworkService where D.Input == Data, E.Output == Data{
    
+    public var logger : ILogger?
+    
     /// Decoder
     public var decoder : D
         
@@ -33,6 +35,8 @@ public struct NetworkService<D: TopLevelDecoder, E : TopLevelEncoder>: INetworkS
         self.encoder = encoder
        
         self.environment = environment
+        
+        self.logger = environment.logger
     }
     
     /// Init service
@@ -47,5 +51,7 @@ public struct NetworkService<D: TopLevelDecoder, E : TopLevelEncoder>: INetworkS
         self.encoder = encoder
        
         self.environment = environment
+        
+        self.logger = environment.logger
     }
 }

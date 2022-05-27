@@ -16,9 +16,11 @@ extension INetworkService {
     func doRequest(_ request: URLRequest) -> AnyPublisher<Data, ServiceError>{
         let urlSession = getURLSession()
 
+        logger?.log(request)
+        
         return urlSession
             .dataTaskPublisher(for: request)
-            .tryResponse()
+            .tryResponse(logger)
             .mapServiceError()
             .eraseToAnyPublisher()
     }
@@ -39,7 +41,7 @@ extension INetworkService {
         catch { return inputDataErrorPublisher() }
 
         guard let request = request.urlRequest(with: environment, body: httpBody, parameters) else { return inputDataErrorPublisher() }
-
+            
         return doRequest(request)
     }
 

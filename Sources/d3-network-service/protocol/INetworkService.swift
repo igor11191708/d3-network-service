@@ -11,7 +11,10 @@ import Foundation
 
 /// Define interface of service to create network requests
 public protocol INetworkService {
-
+    
+    /// Logger
+    var logger : ILogger? { get }
+    
     associatedtype IDecoder: TopLevelDecoder where IDecoder.Input == Data
 
     /// Decoder

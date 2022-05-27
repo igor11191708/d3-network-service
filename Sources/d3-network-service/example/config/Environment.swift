@@ -18,17 +18,24 @@ enum Environment: IEnvironment {
     /// base URL for the  environment
     var baseURL: String {
         switch self {
-        case .development: return "http://localhost:3000"
-        case .production: return "https://google.com"
+            case .development: return "http://localhost:3000"
+            case .production: return "http://localhost:3000"
         }
     }
 
     /// The default HTTP request headers for the environment
     var headers: [IRequestHeader]? {
         switch self {
-        case .development: return [ContentType.applicationJSON]
-        case .production: return [ContentType.textJSON]
+            case .development: return [ContentType.applicationJSON]
+            case .production: return [ContentType.textJSON]
         }
-    }    
+    }
+    
+    var logger : ILogger? {
+        switch self {
+            case .development: return ServiceLogger()
+            case .production: return nil
+        }
+    }
     
 }
