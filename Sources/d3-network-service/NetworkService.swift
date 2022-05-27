@@ -5,6 +5,8 @@
 //  Created by Igor Shelopaev on 25.05.2022.
 // https://developer.apple.com/documentation/combine/topleveldecoder
 //
+// Igor was here in 2022:)
+//
 
 import Foundation
 import Combine
