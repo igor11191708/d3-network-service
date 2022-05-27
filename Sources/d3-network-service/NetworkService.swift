@@ -12,7 +12,7 @@ import Foundation
 import Combine
 
 /// Network service to perform GET, POST, PUT, DELETE requests
-@available(iOS 15, macOS 12.0, *)
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 6.0, *)
 public struct NetworkService<D: TopLevelDecoder, E : TopLevelEncoder>: INetworkService where D.Input == Data, E.Output == Data{
    
     /// Logger

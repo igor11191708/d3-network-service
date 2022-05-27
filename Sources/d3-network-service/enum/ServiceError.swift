@@ -8,7 +8,7 @@
 import Foundation
 
 /// Set of errors defined in the service
-@available(iOS 15, macOS 12.0, *)
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 6.0, *)
 public enum ServiceError: Error, Hashable {
   
     /// input data could not be formed

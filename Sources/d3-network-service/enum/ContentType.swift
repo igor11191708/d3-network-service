@@ -9,7 +9,7 @@ import Foundation
 
 
 /// Set of data defining requests headers for content type
-@available(iOS 15, macOS 12.0, *)
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 6.0, *)
 public enum ContentType: String, IRequestHeader {
    
     case applicationJSON = "application/json"
