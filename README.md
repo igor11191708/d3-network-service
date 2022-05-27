@@ -40,7 +40,7 @@ enum Environment: IEnvironment {
 ### Request headers
 All headers for a request have to conform to the interface [**IRequestHeader**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/protocol/data/IRequestHeader.swift)
 
-See an example is here the defined content types [**ContentType.swift**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/enum/ContentType.swift)
+The example implemetation for content type headers is here [**ContentType.swift**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/enum/ContentType.swift)
 
 ## 2. REST API for endpoint
 Define endpoint API **enum** 
@@ -63,7 +63,7 @@ Extend the enum with interface [**IRequest**](https://github.com/The-Igor/d3-net
 | method | RequestMethod |
 
             
-See the implemetation example here **UserRestAPI.swift**
+The example implemetation is here **UserRestAPI.swift**
 [**UserRestAPI.swift**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/example/config/UserRestAPI.swift)
 
 
