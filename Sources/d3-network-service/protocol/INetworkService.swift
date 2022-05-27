@@ -9,7 +9,6 @@ import Combine
 import Foundation
 
 
-
 /// Define interface of service to create network requests
 public protocol INetworkService {
 

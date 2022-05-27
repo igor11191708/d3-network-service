@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-public struct NetworkServiceView: View {
+
+/// Example view to demonstrate usage of the service
+public struct NetworkServiceViewExample: View {
     
     @StateObject var viewModel = ViewModel()
     

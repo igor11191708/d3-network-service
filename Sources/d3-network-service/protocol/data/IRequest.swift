@@ -8,9 +8,6 @@
 import Foundation
 import Combine
 
-
-
-
 /// Defines an interface to create `URLRequest`
 public protocol IRequest {
 
@@ -28,12 +25,13 @@ extension IRequest {
     /// - Parameter body:  Passing data
     /// - Returns: An optional `URLRequest`
     func urlRequest(
-                    with environment: IEnvironment,
-                    body: Data,
-                    _ parameters: RequestParameters? = nil
-    ) -> URLRequest? {
+        with environment: IEnvironment,
+        body: Data,
+        _ parameters: RequestParameters? = nil)
+        -> URLRequest?
+    {
 
-        guard var request = urlRequest(with: environment, parameters)else{
+        guard var request = urlRequest(with: environment, parameters)else {
             return nil
         }
 
@@ -45,11 +43,9 @@ extension IRequest {
     /// Create a URLRequest
     /// - Parameter environment: The environment where `URLRequest` happens
     /// - Returns: An optional `URLRequest`
-    func urlRequest(
-                    with environment: IEnvironment,
-                    _ parameters: RequestParameters? = nil
-
-    ) -> URLRequest? {
+    func urlRequest(with environment: IEnvironment, _ parameters: RequestParameters? = nil)
+        -> URLRequest?
+    {
 
         guard let url = url(with: environment.baseURL, parameters) else {
             return nil
@@ -71,10 +67,7 @@ extension IRequest {
     /// Create a URL
     /// - Parameter baseURL: The base URL string
     /// - Returns: An optional `URL`
-    private func url(
-        with baseURL: String,
-        _ parameters: RequestParameters?
-    ) -> URL? {
+    private func url(with baseURL: String, _ parameters: RequestParameters?) -> URL? {
 
         guard var urlComponents = URLComponents(string: baseURL) else {
             return nil

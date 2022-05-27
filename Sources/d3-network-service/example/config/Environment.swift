@@ -6,7 +6,7 @@
 
 import Foundation
 
-/// Environments
+/// Environment definition for development and production
 enum Environment: IEnvironment {
 
     /// development

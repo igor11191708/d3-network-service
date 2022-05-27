@@ -17,8 +17,8 @@ extension INetworkService {
     /// - Returns: Erased publisher with decoded output and ``ServiceError``  for failure
     func get<Output: Decodable>(
         with request: IRequest,
-        _ parameters: RequestParameters? = nil
-    ) -> AnyPublisher<Output, ServiceError>
+        _ parameters: RequestParameters? = nil)
+        -> AnyPublisher<Output, ServiceError>
     {
 
         guard let request = request.urlRequest(with: environment, parameters) else { return inputDataErrorPublisher() }

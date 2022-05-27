@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+/// Set of data defining requests headers for content type
 public enum ContentType: String, IRequestHeader {
    
     case applicationJSON = "application/json"

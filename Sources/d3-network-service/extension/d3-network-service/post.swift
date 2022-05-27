@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 extension INetworkService {
-    
+
     /// Send a post request
     /// - Parameters:
     ///  - body: The body of the request
@@ -19,8 +19,8 @@ extension INetworkService {
     func post<Input : Encodable, Output : Decodable>(
         body: Input,
         with request: IRequest,
-        _ parameters : RequestParameters? = nil
-    ) -> AnyPublisher<Output, ServiceError>
+        _ parameters: RequestParameters? = nil)
+        -> AnyPublisher<Output, ServiceError>
     {
         return doRequest(body: body, with: request, parameters)
             .decode(with: self.decoder)
