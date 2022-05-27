@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-public extension INetworkService {
+extension INetworkService {
     
     /// Send a post request
     /// - Parameters:
@@ -16,10 +16,12 @@ public extension INetworkService {
     ///  - request: Config based on ``IEnvironment`` to create request
     /// - Returns: Erased publisher with decoded output and  ``ServiceError``  for failure
     func post<Input : Encodable, Output : Decodable>(
-        _ body: Input, with request: IRequest
+        body: Input,
+        with request: IRequest,
+        _ parameters : RequestParameters? = nil
     ) -> AnyPublisher<Output, ServiceError>
     {
-        return withBody(body, with: request)
+        return doRequest(body: body, with: request, parameters)
             .decode(with: self.decoder)
             .mapServiceError()
             .eraseToAnyPublisher()

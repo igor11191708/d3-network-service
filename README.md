@@ -23,12 +23,24 @@ enum Environment: IEnvironment {
 
     var baseURL: String {
         switch self {
-        case .development: return "http://localhost:3000"
-        case .production: return "https://google.com"
+            case .development: return "http://localhost:3000"
+            case .production: return "https://google.com"
         }
     }
+    
+    var headers: [IRequestHeader]? {
+        switch self {
+            case .development: return [ContentType.applicationJSON]
+            case .production: return [ContentType.textJSON]
+        }
+    }  
 }
 ```
+
+### Request headers
+All headers for a request have to conform to the interface [**IRequestHeader**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/protocol/data/IRequestHeader.swift)
+
+See an example is here the defined content types [**ContentType.swift**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/enum/ContentType.swift)
 
 ## 2. REST API for endpoint
 Define endpoint API **enum** 
@@ -45,37 +57,32 @@ enum UserRestAPI {
 
 Extend the enum with interface [**IRequest**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/protocol/data/IRequest.swift)
 
-| field | type | requared |
-| --- | --- | --- |
-| path | String | \* |
-| method | RequestMethod | \* |
-| headers | [IRequestHeader] |  |
-| parameters | [IRequestParameter]  |  |
+
+
+| field | type |
+| --- | --- |
+| path | String |
+| method | RequestMethod |
 
             
 See the implemetation example here **UserRestAPI.swift**
 [**UserRestAPI.swift**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/example/config/UserRestAPI.swift)
 
-### Parameters
-All parameters for a request have to conform to the interface [**IRequestParameter**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/protocol/data/IRequestParameter.swift)
 
-See an example is here the defined pagination params [**Pagination.swift**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/enum/Pagination.swift)
-
-### Request headers
-All headers for a request have to conform to the interface [**IRequestHeader**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/protocol/data/IRequestHeader.swift)
-
-See an example is here the defined content types [**ContentType.swift**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/enum/ContentType.swift)
 
 ## 3. Create network sevice
 ```swift
     let network = NetworkService(environment: Environment.development)
 ```
+
+`execute` - There's only one method to do requests
+
 ### Read
 
 ```swift
    let cfg = UserRestAPI.read(id: 1)
    
-   let publisher = network.get(with: cfg)
+   let publisher: Output = network.execute(with: cfg, ["token" : 65678])
 ```
 
 ### Create
@@ -83,21 +90,21 @@ See an example is here the defined content types [**ContentType.swift**](https:/
     let cfg = UserRestAPI.create
     let data = Model(id: 11, name: "Igor")
 
-    let publisher = network.post(data, with: cfg)
+    let publisher: Output = network.execute(body: user, with: cfg, ["copy" : true])
 ```
 ### Update
 ```swift
     let cfg = UserRestAPI.update
     let data = Model(id: 11, name: "Igor")    
 
-    let publisher: Output = network.put(data, with: cfg)
+    let publisher: Output = network.execute(body: user, with: cfg)
 ```
 
 ### Delete
 ```swift
     let cfg = UserRestAPI.delete(id: 11)
     
-    let publisher: Output = network.delete(with: cfg)
+    let publisher: Output = network.execute(with: cfg)
 ```    
 
 

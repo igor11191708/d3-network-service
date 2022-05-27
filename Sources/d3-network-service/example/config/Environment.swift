@@ -22,4 +22,13 @@ enum Environment: IEnvironment {
         case .production: return "https://google.com"
         }
     }
+
+    /// The default HTTP request headers for the environment
+    var headers: [IRequestHeader]? {
+        switch self {
+        case .development: return [ContentType.applicationJSON]
+        case .production: return [ContentType.textJSON]
+        }
+    }    
+    
 }

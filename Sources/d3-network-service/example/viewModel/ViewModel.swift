@@ -17,32 +17,32 @@ final class ViewModel: ObservableObject {
         environment: Environment.development)
 
     func readAll(page: Int) {
-        let cfg = UserRestAPI.index(page: page)
-        let publisher: Output = network.get(with: cfg)
+        let cfg = UserRestAPI.index
+        let publisher: Output = network.execute(with: cfg, ["page" : 0, "pageSize": 25])
         onSink(publisher)
     }
 
     func read(id: Int) {
         let cfg = UserRestAPI.read(id: 1)
-        let publisher: Output = network.get(with: cfg)
+        let publisher: Output = network.execute(with: cfg, ["token" : 65678])
 
         onSink(publisher)
     }
     func create(_ user: Model) {
         let cfg = UserRestAPI.create
-        let publisher: Output = network.post(user, with: cfg)
+        let publisher: Output = network.execute(body: user, with: cfg, ["copy" : true])
         onSink(publisher)
     }
 
     func update(_ user: Model) {
         let cfg = UserRestAPI.update
-        let publisher: Output = network.put(user, with: cfg)
+        let publisher: Output = network.execute(body: user, with: cfg)
         onSink(publisher)
     }
 
     func delete(id: Int) {
         let cfg = UserRestAPI.delete(id: id)
-        let publisher: Output = network.delete(with: cfg)
+        let publisher: Output = network.execute(with: cfg)
         onSink(publisher)
     }
 

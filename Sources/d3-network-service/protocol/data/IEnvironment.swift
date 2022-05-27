@@ -12,4 +12,8 @@ public protocol IEnvironment {
     
     /// The base URL of the environment
     var baseURL: String { get }
+    
+    /// The default HTTP request headers for the environment
+    var headers: [IRequestHeader]? { get }
 }
+

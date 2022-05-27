@@ -8,20 +8,23 @@
 import Combine
 import Foundation
 
-public extension INetworkService {
+extension INetworkService {
 
     /// Send a get request
     /// - Parameters:
     /// - request - Config based on ``IEnvironment`` to create request
     /// - Returns: Erased publisher with decoded output and  ``ServiceError``  for failure
-    func get<Output: Decodable>(with request: IRequest) -> AnyPublisher<Output, ServiceError>{
-        
-        guard let request = request.urlRequest(with: environment) else { return  inputDataErrorPublisher() }
-        
+    func get<Output: Decodable>(
+        with request: IRequest,
+        _ parameters: RequestParameters? = nil
+    ) -> AnyPublisher<Output, ServiceError>
+    {
+
+        guard let request = request.urlRequest(with: environment, parameters) else { return inputDataErrorPublisher() }
+
         return doRequest(request)
             .decode(with: self.decoder)
             .mapServiceError()
             .eraseToAnyPublisher()
     }
-
 }

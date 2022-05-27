@@ -8,7 +8,7 @@ import Foundation
 
 enum UserRestAPI {
     
-    case index(page: Int?)
+    case index
     
     case read(id: Int)
     
@@ -41,14 +41,4 @@ extension UserRestAPI: IRequest {
         case .delete(_): return .delete
         }
     }
-    
-    var parameters: [IRequestParameter] {
-        
-        if case .index(let num) = self {
-            return Pagination.getAll(num: num)
-        }
-        
-        return []
-    }
-    
 }
