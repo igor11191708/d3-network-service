@@ -50,7 +50,7 @@ The example implemetation for content type headers is here [**ContentType.swift*
 
 ### Logger
 You can use out of the box standard logger [**ServiceLogger**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/log/ServiceLogger.swift) or if you don't need some specific data from [**URLRequest**](https://developer.apple.com/documentation/foundation/urlrequest) and [**URLResponse**](https://developer.apple.com/documentation/foundation/urlresponse) or define your own with interface [**ILogger**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/protocol/ILogger.swift)
-## 2. REST API for endpoint
+## 2. API for endpoint
 Define endpoint API **enum** 
 ```swift
 enum UserRestAPI {
