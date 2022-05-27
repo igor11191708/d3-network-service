@@ -31,6 +31,8 @@ enum Environment: IEnvironment {
         }
     }
     
+    
+    /// Use ``ServiceLogger`` if you don't need some specifics in terms of data from requests and responses
     var logger : ILogger? {
         switch self {
             case .development: return ServiceLogger()

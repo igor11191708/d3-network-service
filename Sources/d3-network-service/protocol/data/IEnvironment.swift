@@ -16,7 +16,7 @@ public protocol IEnvironment {
     /// The default HTTP request headers for the environment
     var headers: [IRequestHeader]? { get }
         
-    /// Service logger
+    /// Use ``ServiceLogger`` if you don't need some specifics in terms of data from requests and responses
     var logger : ILogger? { get }
 }
 
