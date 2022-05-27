@@ -8,7 +8,7 @@ Reactive wrapper for **URLSession.shared.dataTaskPublisher** to create different
 - [x] Error handling from forming URLRequest object to gettting data on a subscription
 - [x] Customizable for different environments development, production, testing
 - [x] Customizable for different requests schemes from classic **CRUD Rest** to what suits to your own requirements
-- [x] Easy, simple to customize and use
+- [x] Based on interfaces not implementations
 
 
 ## 1. Environment
