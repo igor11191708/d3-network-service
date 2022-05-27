@@ -8,7 +8,7 @@ Reactive wrapper for **URLSession.shared.dataTaskPublisher** to create different
 - [x] Error handling from forming URLRequest object to gettting data on a subscription
 - [x] Customizable for different environments development, production, testing
 - [x] Customizable for different requests schemes from classic **CRUD Rest** to what suits to your own requirements
-
+- [x] Easy, simple to customize and use
 
 
 ## 1. Environment
@@ -100,6 +100,9 @@ The example implemetation is here **UserRestAPI.swift**
 `execute` - There's only one API method to do requests that gets what type of request you whant to do from the endpont configuration GET, POST, PUT, DELETE
 
 There are four methods are available currently  GET, POST, PUT, DELETE
+
+## Parameters
+Pass a [String: CustomStringConvertible] dictionary to the params parameter that avalable for GET, POST, PUT requests
 
 ### Read
 

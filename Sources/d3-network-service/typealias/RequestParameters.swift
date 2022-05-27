@@ -8,4 +8,4 @@
 import Foundation
 
 /// Type alias used for HTTP request parameters. Used for query parameters for GET, POST, PUT requests
-public typealias RequestParameters = [String: Any?]
+public typealias RequestParameters = [String: CustomStringConvertible]

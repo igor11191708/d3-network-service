@@ -94,7 +94,7 @@ extension IRequest {
         guard let parameters = parameters else { return nil }
 
         return parameters.map { (item) -> URLQueryItem in
-            let valueString = String(describing: item.value ?? "")
+            let valueString = String(describing: item.value)
             return URLQueryItem(name: item.key, value: valueString)
         }
     }
