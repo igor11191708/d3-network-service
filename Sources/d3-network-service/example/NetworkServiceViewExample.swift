@@ -9,6 +9,7 @@ import SwiftUI
 
 
 /// Example view to demonstrate usage of the service
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 6.0, *)
 public struct NetworkServiceViewExample: View {
     
     @StateObject var viewModel = ViewModel()
