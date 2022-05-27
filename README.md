@@ -154,3 +154,7 @@ To try it in the real environment. I suggest installing the basic NodeJS Express
 - Create a project, add the package and put [**NetworkServiceView()**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/example/NetworkServiceView.swift) in ContentView()
 - Run server *NodeJS Express*
 - Run SwiftUI project
+
+## Documentation(API)
+- You need to have Xcode 13 installed in order to have access to Documentation Compiler (DocC)
+- Go to Product > Build Documentation or **⌃⇧⌘ D**
