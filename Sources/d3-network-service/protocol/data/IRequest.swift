@@ -15,7 +15,7 @@ import Combine
 public protocol IRequest {
 
     /// The path that will be appended to API's base URL.
-    var path: String { get }
+    var route: String { get }
 
     /// The HTTP method.
     var method: RequestMethod { get }
@@ -80,7 +80,7 @@ extension IRequest {
             return nil
         }
 
-        urlComponents.path = urlComponents.path + path
+        urlComponents.path = urlComponents.path + route
 
         urlComponents.queryItems = queryItems(parameters)
 

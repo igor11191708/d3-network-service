@@ -59,7 +59,7 @@ Extend the enum with interface [**IRequest**](https://github.com/The-Igor/d3-net
 
 | field | type |
 | --- | --- |
-| path | String |
+| route | String |
 | method | RequestMethod |
 
             

@@ -22,7 +22,7 @@ enum UserRestAPI {
 
 extension UserRestAPI: IRequest {
     
-    var path: String {
+    var route: String {
         switch self {
         case .index: return "/user"
         case .read(let id): return "/user/\(id)"
