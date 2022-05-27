@@ -15,6 +15,7 @@ public struct ServiceLogger: ILogger {
     /// Log requests
     /// - Parameter request: `URLRequest`
     public func log(_ request: URLRequest) {
+        
         if let httpMethod = request.httpMethod,
             let url = request.url {
             print("\(httpMethod) '\(url.absoluteString)'")
@@ -26,6 +27,7 @@ public struct ServiceLogger: ILogger {
     /// Log responses
     /// - Parameter response: `URLResponse`
     public func log(_ response: URLResponse) {
+        
         if let response = response as? HTTPURLResponse {
             statusCode(response)
         }
@@ -34,6 +36,7 @@ public struct ServiceLogger: ILogger {
     /// Log http status code
     /// - Parameter urlResponse: `HTTPURLResponse`
     private func statusCode(_ urlResponse: HTTPURLResponse) {
+        
         if let url = urlResponse.url {
             print("Status code: \(urlResponse.statusCode) '\(url.absoluteString)'")
         }
@@ -43,6 +46,7 @@ public struct ServiceLogger: ILogger {
     /// Log http headers
     /// - Parameter urlRequest: `URLRequest`
     private func headers(_ urlRequest: URLRequest) {
+        
         if let allHTTPHeaderFields = urlRequest.allHTTPHeaderFields {
             for (key, value) in allHTTPHeaderFields {
                 print("Http headers: \(key) : \(value)")
@@ -53,6 +57,7 @@ public struct ServiceLogger: ILogger {
     /// Log http body
     /// - Parameter urlRequest: `URLRequest`
     private func body(_ urlRequest: URLRequest) {
+        
         if let body = urlRequest.httpBody,
             let str = String(data: body, encoding: .utf8) {
             print("Http body: \(str)")

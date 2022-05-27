@@ -19,7 +19,8 @@ extension INetworkService {
         with request: IRequest,
         _ parameters: RequestParameters? = nil) -> AnyPublisher<Output, ServiceError>{
 
-        guard let request = request.urlRequest(with: environment, parameters) else { return inputDataErrorPublisher() }
+        guard let request = request.urlRequest(with: environment, parameters) else { return inputDataErrorPublisher()
+        }
 
         return doRequest(request)
             .decode(with: self.decoder)

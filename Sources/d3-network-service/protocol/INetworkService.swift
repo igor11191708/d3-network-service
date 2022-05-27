@@ -11,10 +11,10 @@ import Foundation
 
 /// Define interface of service to create network requests
 public protocol INetworkService {
-    
+
     /// Logger
-    var logger : ILogger? { get }
-    
+    var logger: ILogger? { get }
+
     associatedtype IDecoder: TopLevelDecoder where IDecoder.Input == Data
 
     /// Decoder
@@ -50,6 +50,7 @@ public extension INetworkService {
     func execute<Output: Decodable>(
         with request: IRequest,
         _ parameters: RequestParameters? = nil) -> AnyPublisher<Output, ServiceError> {
+
         if request.method == .get {
             return get(with: request, parameters)
         }
@@ -71,8 +72,8 @@ public extension INetworkService {
     func execute<Input : Encodable, Output : Decodable>(
         body: Input,
         with request: IRequest,
-        _ parameters: RequestParameters? = nil) -> AnyPublisher<Output, ServiceError>
-    {
+        _ parameters: RequestParameters? = nil) -> AnyPublisher<Output, ServiceError> {
+
         if request.method == .post {
             return post(body: body, with: request, parameters)
         }
@@ -91,12 +92,14 @@ extension INetworkService {
     /// Get session
     /// - Returns: Session instance
     func getURLSession() -> URLSession {
+        
         return URLSession.shared
     }
 
     /// Error publisher for input data error
     /// - Returns: Erased publisher with input data error
     func inputDataErrorPublisher<M>() -> AnyPublisher<M, ServiceError> {
+        
         Fail<M, ServiceError>(error: .inputDataError)
             .eraseToAnyPublisher()
     }

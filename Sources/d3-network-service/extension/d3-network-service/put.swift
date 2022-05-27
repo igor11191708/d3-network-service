@@ -20,7 +20,8 @@ extension INetworkService {
         body: Input,
         with request: IRequest,
         _ parameters: RequestParameters? = nil) -> AnyPublisher<Output, ServiceError>{
-        return doRequest(body: body, with: request, parameters)
+       
+            return doRequest(body: body, with: request, parameters)
             .decode(with: self.decoder)
             .mapServiceError()
             .eraseToAnyPublisher()

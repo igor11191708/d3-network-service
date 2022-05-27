@@ -13,18 +13,19 @@ extension INetworkService {
     /// Performe request
     /// - Parameter request: Request data
     /// - Returns: Erased publisher with raw output and  ``ServiceError``  for failure
-    func doRequest(_ request: URLRequest) -> AnyPublisher<Data, ServiceError>{
+    func doRequest(_ request: URLRequest) -> AnyPublisher<Data, ServiceError> {
+
         let urlSession = getURLSession()
 
         logger?.log(request)
-        
+
         return urlSession
             .dataTaskPublisher(for: request)
             .tryResponse(logger)
             .mapServiceError()
             .eraseToAnyPublisher()
     }
-    
+
     /// Send a request with a body .put, .post
     /// - Parameters:
     ///  - body: The body of the request
@@ -33,15 +34,20 @@ extension INetworkService {
     func doRequest<Input : Encodable>(
         body: Input,
         with request: IRequest,
-        _ parameters: RequestParameters? = nil) -> AnyPublisher<Data, ServiceError>{
+        _ parameters: RequestParameters? = nil) -> AnyPublisher<Data, ServiceError> {
+
         var httpBody: Data
 
         /// prepare body
-        do { httpBody = try encoder.encode(body) }
-        catch { return inputDataErrorPublisher() }
+        do {
+            httpBody = try encoder.encode(body)
+        }
+        catch {
+            return inputDataErrorPublisher()
+        }
 
         guard let request = request.urlRequest(with: environment, body: httpBody, parameters) else { return inputDataErrorPublisher() }
-            
+
         return doRequest(request)
     }
 

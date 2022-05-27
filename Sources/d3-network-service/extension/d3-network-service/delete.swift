@@ -16,6 +16,7 @@ extension INetworkService {
     ///  - parameters: Config based on ``IEnvironment`` to create request
     /// - Returns: Erased publisher with decoded output and ``ServiceError``  for failure
     func delete<M: Decodable>(with request: IRequest) -> AnyPublisher<M, ServiceError>{
+        
         guard let request = request.urlRequest(with: environment) else { return inputDataErrorPublisher() }
 
         return doRequest(request)
