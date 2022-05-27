@@ -57,8 +57,6 @@ enum UserRestAPI {
 
 Extend the enum with interface [**IRequest**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/protocol/data/IRequest.swift)
 
-
-
 | field | type |
 | --- | --- |
 | path | String |
@@ -75,7 +73,9 @@ See the implemetation example here **UserRestAPI.swift**
     let network = NetworkService(environment: Environment.development)
 ```
 
-`execute` - There's only one method to do requests
+`execute` - There's only one API method to do requests that gets what type of request you whant to do from the endpont configuration GET, POST, PUT, DELETE
+
+There are four methods are available currently  GET, POST, PUT, DELETE
 
 ### Read
 
