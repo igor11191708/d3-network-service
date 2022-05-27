@@ -55,7 +55,7 @@ Define endpoint API **enum**
 ```swift
 enum UserRestAPI {
 
-    case index(page: Int?)
+    case index
     case read(id: Int)
     case create
     case update
