@@ -125,7 +125,7 @@ Pass a [String: CustomStringConvertible] dictionary to the parameter that avalab
     let cfg = UserRestAPI.create
     let data = Model(id: 11, name: "Igor")
 
-    let publisher: Output = network.execute(body: user, with: cfg, ["copy" : true])
+    let publisher: Output = network.execute(body: user, with: cfg)
 ```
 ### Update
 ```swift
