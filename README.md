@@ -49,7 +49,7 @@ All headers for a request have to conform to the interface [**IRequestHeader**](
 The example implemetation for content type headers is here [**ContentType.swift**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/enum/ContentType.swift)
 
 ### Logger
-Use [**ServiceLogger**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/log/ServiceLogger.swift) if you don't need some specific data from **URLResponse** and **URLResponse** or define your own with interface [**ILogger**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/protocol/ILogger.swift)
+You can use out of the box standard logger [**ServiceLogger**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/log/ServiceLogger.swift) or if you don't need some specific data from **URLResponse** and **URLResponse** or define your own with interface [**ILogger**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/protocol/ILogger.swift)
 ## 2. REST API for endpoint
 Define endpoint API **enum** 
 ```swift
