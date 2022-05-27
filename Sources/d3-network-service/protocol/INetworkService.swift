@@ -41,10 +41,16 @@ public protocol INetworkService {
 
 public extension INetworkService {
 
+
+    /// Send a request
+    /// - Parameters:
+    ///  - request - Config based on ``IEnvironment`` to create request
+    ///  - parameters - Config based on ``IEnvironment`` to create request
+    /// - Returns: Erased publisher with decoded output and
     func execute<Output: Decodable>(
         with request: IRequest,
-        _ parameters: RequestParameters? = nil
-    ) -> AnyPublisher<Output, ServiceError>
+        _ parameters: RequestParameters? = nil)
+        -> AnyPublisher<Output, ServiceError>
     {
         if request.method == .get {
             return get(with: request, parameters)
@@ -57,6 +63,13 @@ public extension INetworkService {
         return inputDataErrorPublisher()
     }
 
+
+    /// Send a request
+    /// - Parameters:
+    ///  - body: The body of the request
+    ///  - request - Config based on ``IEnvironment`` to create request
+    ///  - parameters - Config based on ``IEnvironment`` to create request
+    /// - Returns: Erased publisher with decoded output and
     func execute<Input : Encodable, Output : Decodable>(
         body: Input,
         with request: IRequest,

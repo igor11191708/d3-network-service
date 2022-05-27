@@ -14,7 +14,8 @@ extension INetworkService {
     /// - Parameters:
     ///  - body: The body of the request
     ///  - request: Config based on ``IEnvironment`` to create request
-    /// - Returns: Erased publisher with decoded output and  ``ServiceError``  for failure
+    ///  - parameters: Config based on ``IEnvironment`` to create request
+    /// - Returns: Erased publisher with decoded output and
     func post<Input : Encodable, Output : Decodable>(
         body: Input,
         with request: IRequest,

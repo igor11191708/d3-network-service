@@ -88,7 +88,8 @@ extension IRequest {
     }
 
     /// Create a list of parameters
-    /// Returns the URLRequest `URLQueryItem`
+    /// - Parameter parameters: Set of parameters
+    /// - Returns: Set of `URLQueryItem`
     private func queryItems(_ parameters: RequestParameters?) -> [URLQueryItem]? {
 
         guard let parameters = parameters else { return nil }
