@@ -1,5 +1,4 @@
 # Network service Combine REST API CRUD
-## Network requests GET, POST, PUT, DELETE
 
 Easy and lightweight network service. Reactive wrapper for **URLSession.shared.dataTaskPublisher** to create different set of network requests like GET, POST, PUT, DELETE
 
