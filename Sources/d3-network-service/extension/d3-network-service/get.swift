@@ -13,7 +13,7 @@ extension INetworkService {
     /// Send a get request
     /// - Parameters:
     ///  - request - Config based on ``IEnvironment`` to create request
-    ///  - parameters - Config based on ``IEnvironment`` to create request
+    ///  - parameters - Set of parameters
     /// - Returns: Erased publisher with decoded output and ``ServiceError``  for failure
     func get<Output: Decodable>(
         with request: IRequest,

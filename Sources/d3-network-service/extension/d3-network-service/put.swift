@@ -12,9 +12,9 @@ extension INetworkService {
 
     /// Send a put request
     /// - Parameters:
-    ///  - body: The body of the request
-    ///  - request: Config based on ``IEnvironment`` to create request
-    ///  - parameters:  Config based on ``IEnvironment`` to create request
+    ///  - body - The body of the request
+    ///  - request - Config based on ``IEnvironment`` to create request
+    ///  - parameters - Set of parameters
     /// - Returns: Erased publisher with decoded output and
     func put<Input : Encodable, Output : Decodable>(
         body: Input,
