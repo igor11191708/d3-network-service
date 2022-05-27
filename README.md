@@ -7,7 +7,7 @@ Easy and lightweight network service. Reactive wrapper for **URLSession.shared.d
 - [x] Stand alone package without any dependencies using just Apple's **Combine** facilities
 - [x] Error handling from forming URLRequest object to gettting data on a subscription
 - [x] Customizable for different environments development, production, testing
-- [x] Customizable for different requests schemes from classic **CRUD Rest** to what suits to your own requirements
+- [x] Customizable for different requests schemes from classic **CRUD Rest** to what suits to your own custom routes
 - [x] Based on interfaces not implementations
 - [x] Ability to log and customize logers for different environment
 
