@@ -37,12 +37,12 @@ extension HTTPURLResponse.StatusCode {
 extension HTTPURLResponse.StatusCode {
     
     /// Define an error type according the status code
-    var mapError: ServiceError? {
+    func mapError(_ httpURLResponse : HTTPURLResponse) -> ServiceError? {
         switch self {
         case 200...299: return nil
-        case 400...499: return ServiceError.clientError
-        case 500...599: return ServiceError.serverError
-        default: return ServiceError.http
+        case 400...499: return ServiceError.clientError(httpURLResponse)
+        case 500...599: return ServiceError.serverError(httpURLResponse)
+        default: return ServiceError.http(httpURLResponse)
         }
     }
 }

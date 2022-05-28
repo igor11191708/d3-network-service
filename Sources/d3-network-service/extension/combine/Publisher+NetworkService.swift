@@ -22,7 +22,7 @@ extension Publisher where Output == URLSession.DataTaskPublisher.Output {
                 throw ServiceError.invalidResponse(response)
             }
 
-            if let httpError = httpResponse.statusCode.mapError {
+            if let httpError = httpResponse.statusCode.mapError(httpResponse) {
                 throw httpError
             }
 
