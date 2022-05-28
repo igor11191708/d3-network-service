@@ -123,14 +123,14 @@ Pass a [String: CustomStringConvertible] dictionary to the parameter that avalab
 ### Create
 ```swift
     let cfg = UserRestAPI.create
-    let data = Model(id: 11, name: "Igor")
+    let user = Model(id: 11, name: "Igor")
 
     let publisher: Output = network.execute(body: user, with: cfg)
 ```
 ### Update
 ```swift
     let cfg = UserRestAPI.update
-    let data = Model(id: 11, name: "Igor")    
+    let user = Model(id: 11, name: "Igor")    
 
     let publisher: Output = network.execute(body: user, with: cfg)
 ```
