@@ -56,7 +56,7 @@ extension Publisher {
                 case is URLError:
                     return .urlError(error.localizedDescription)
                 default:
-                    return .error(error.localizedDescription)
+                    return .error(error as NSError)
                 }
             }
 

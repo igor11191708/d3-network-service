@@ -33,7 +33,7 @@ public enum ServiceError: Error, Hashable {
     case parseError(String)
     
     /// Undefined error
-    case error(String)
+    case error(NSError)
     
 
 }
