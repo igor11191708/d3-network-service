@@ -159,7 +159,7 @@ To try it in the real environment. I suggest installing the basic NodeJS Express
 - Get [**index.js**](https://github.com/The-Igor/d3-network-service/blob/main/js/index.js) file from here and replace it with the one in the boilerplate and luanch the server.
 
 ### Real SwiftUI example
-- Create a project, add the package and put [**NetworkServiceViewExample()**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/example/NetworkServiceViewExample.swift) in ContentView()
+[d3-rest-combine-swift-example](https://github.com/The-Igor/d3-rest-combine-swift-example)
 - Run server *NodeJS Express*
 - Run SwiftUI project
 
