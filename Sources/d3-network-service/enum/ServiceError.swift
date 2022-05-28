@@ -32,7 +32,7 @@ public enum ServiceError: Error, Hashable {
     /// There was an error parsing the data
     case parseError(String)
     
-    /// Unknown error
+    /// Undefined error
     case error(String)
     
 
