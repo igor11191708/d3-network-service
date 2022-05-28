@@ -1,6 +1,6 @@
 # Network service Combine REST API CRUD
 
-Easy and lightweight network service. Reactive wrapper for **URLSession.shared.dataTaskPublisher** to create different set of network requests like GET, POST, PUT, DELETE
+Easy and lightweight network service. Reactive wrapper for **URLSession.shared.dataTaskPublisher** to create different set of network requests like GET, POST, PUT, DELETE customizable with coders conforming to `TopLevelDecoder`, `TopLevelEncoder`
 
 ## Features
 - [x] Stand alone package without any dependencies using just Apple's **Combine** facilities
