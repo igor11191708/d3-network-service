@@ -150,7 +150,7 @@ and add `https://github.com/The-Igor/d3-network-service`
 
 
 ## Try it in the real environment
-### Simple server instalation ( mocking with Node.js Express)
+### Simple server instalation (NodeJS Express)
 
 To try it in the real environment. I suggest installing the basic NodeJS Express boilerplate. Take a look on the video snippet how easy it is to get it through Webstorm that is accessible for free for a trial period.
 
