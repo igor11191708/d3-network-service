@@ -27,22 +27,7 @@ public struct NetworkService<D: TopLevelDecoder, E : TopLevelEncoder>: INetworkS
     /// Set of data defining an environment for requests
     public var environment : IEnvironment
     
-    /// Init service
-    /// - Parameters:
-    ///   - decoder: decoder
-    ///   - encoder: encoder
-    ///   - environment: Set of data defining an environment for requests
-    public init(decoder : D, encoder : E, environment : IEnvironment){
-        
-        self.decoder = decoder
-        
-        self.encoder = encoder
-       
-        self.environment = environment
-        
-        self.logger = environment.logger
-    }
-    
+   
     /// Init service
     /// - Parameters:
     ///   - decoder: decoder
