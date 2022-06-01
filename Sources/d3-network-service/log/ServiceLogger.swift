@@ -12,7 +12,12 @@ import Foundation
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 6.0, *)
 public struct ServiceLogger: ILogger {
 
+    // MARK: - Life circle
+    
+    
     public init(){ }
+    
+    // MARK: - API
     
     /// Log requests
     /// - Parameter request: `URLRequest`
@@ -34,6 +39,8 @@ public struct ServiceLogger: ILogger {
             statusCode(response)
         }
     }
+    
+    // MARK: - Private
     
     /// Log http status code
     /// - Parameter urlResponse: `HTTPURLResponse`
