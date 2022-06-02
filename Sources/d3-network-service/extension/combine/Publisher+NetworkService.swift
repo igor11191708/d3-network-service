@@ -8,6 +8,8 @@
 import Combine
 import Foundation
 
+/// URLSession.DataTaskPublisher.Output is
+/// (data: Data, response: URLResponse)
 extension Publisher where Output == URLSession.DataTaskPublisher.Output {
 
     
