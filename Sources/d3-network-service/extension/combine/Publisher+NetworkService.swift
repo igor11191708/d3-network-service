@@ -36,7 +36,7 @@ extension Publisher where Output == URLSession.DataTaskPublisher.Output {
     }
 }
 
-extension Publisher where Output == Data {
+extension Publisher {
 
     /// Decodes the output from the upstream using a specified decoder
     /// - Returns: A publisher that decodes a given type using a specified decoder and publishes the result
