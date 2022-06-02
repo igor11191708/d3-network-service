@@ -10,7 +10,7 @@ import Foundation
 
 extension INetworkService {
 
-    /// Performe request
+    /// Performe a request
     /// - Parameter request: Request data
     /// - Returns: Erased publisher with raw output and  ``ServiceError``  for failure
     func doRequest(_ request: URLRequest) -> AnyPublisher<Data, ServiceError> {
@@ -26,7 +26,7 @@ extension INetworkService {
             .eraseToAnyPublisher()
     }
 
-    /// Send a request with a body .put, .post
+    /// Send a request with a body for .put, .post methods
     /// - Parameters:
     ///  - body: The body of the request
     ///  - request: Config based on ``IEnvironment`` to create request
