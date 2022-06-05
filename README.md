@@ -156,7 +156,7 @@ Pass a [String: CustomStringConvertible] dictionary to the parameter that avalab
             
         // or chain it using predicate to analyse previous result
         
-        read.then({ $0.count > 1 }, create )
+        read.then(ifTrue : {$0.count > 1}, create)
 ```    
 
 ## Package installation 

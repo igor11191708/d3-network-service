@@ -88,12 +88,12 @@ public extension Publisher {
     ///   - publisher: New publisher
     /// - Returns: Chained publishers
     func then<T: Decodable>(
-        _ predicate : @escaping (Self.Output) -> Bool,
+        ifTrue  : @escaping (Self.Output) -> Bool,
         _ publisher: AnyPublisher<T, ServiceError>
     ) -> Publishers.FlatMap<AnyPublisher<T, ServiceError>, Self> {
         
         self.flatMap{
-            if predicate($0) == false {
+            if ifTrue($0) == false {
                 return Fail<T, ServiceError>(error: .chainingError)
                     .eraseToAnyPublisher()
             }
