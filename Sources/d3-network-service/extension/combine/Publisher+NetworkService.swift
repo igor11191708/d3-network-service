@@ -84,7 +84,7 @@ public extension Publisher {
     
     /// Chain publishers with predicate logic
     /// - Parameters:
-    ///   - predicate: Analyse previous result
+    ///   - predicate: Analyze previous result
     ///   - publisher: New publisher
     /// - Returns: Chained publishers
     func then<T: Decodable>(
