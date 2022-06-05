@@ -107,7 +107,8 @@ The example implemetation is here **UserRestAPI.swift**
     let network = NetworkService(environment: Environment.development)
 ```
 
-`execute` - There's only one API method to do requests that gets what type of request you whant to do from the endpont configuration GET, POST, PUT, DELETE
+`execute` - Do request from the endpont configuration GET, POST, PUT, DELETE
+`then` - Chain requests
 
 There are four methods are available currently  GET, POST, PUT, DELETE
 
