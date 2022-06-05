@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-extension INetworkService {
+extension INetwork {
 
     /// Send a get request
     /// - Parameters:

@@ -11,7 +11,7 @@ import Foundation
 
 /// Define interface of service to create network requests
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 6.0, *)
-public protocol INetworkService {
+public protocol INetwork {
 
     /// Logger
     var logger: ILogger? { get }
@@ -40,7 +40,7 @@ public protocol INetworkService {
 
 }
 
-public extension INetworkService {
+public extension INetwork {
 
 
     /// Send a request
@@ -88,7 +88,7 @@ public extension INetworkService {
 }
 
 
-extension INetworkService {
+extension INetwork {
 
     /// Get session
     /// - Returns: Session instance

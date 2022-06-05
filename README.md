@@ -108,7 +108,6 @@ The example implemetation is here **UserRestAPI.swift**
 ```
 
 - `execute` - Do request from the endpont configuration GET, POST, PUT, DELETE
-- `then` - Chain requests
 
 There are four methods are available currently  GET, POST, PUT, DELETE
 

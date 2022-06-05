@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-extension INetworkService {
+extension INetwork {
 
     /// Performe a request
     /// - Parameter request: Request data
