@@ -152,6 +152,10 @@ Pass a [String: CustomStringConvertible] dictionary to the parameter that avalab
         
         read
             .then(create)
+            
+        // or chain it using predicate to analyse previous result
+        
+        read.then({ $0.count > 1 }, create )
 ```    
 
 ## Package installation 

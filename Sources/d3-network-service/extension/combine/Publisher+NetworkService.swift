@@ -74,10 +74,33 @@ public extension Publisher {
     
     /// Create serial chain with two publishers
     /// - Parameter publisher: Publisher to chain
-    /// - Returns: New chained publisher
+    /// - Returns: New publisher
     func then<T: Decodable>(_ publisher: AnyPublisher<T, ServiceError>) -> Publishers.FlatMap<AnyPublisher<T, ServiceError>, Self> {
 
         self.flatMap { value in publisher }
     }
+    
+    
+    
+    /// Chain publishers with predicate logic
+    /// - Parameters:
+    ///   - predicate: Analyse previous result
+    ///   - publisher: New publisher
+    /// - Returns: Chained publishers
+    func then<T: Decodable>(
+        _ predicate : @escaping (Self.Output) -> Bool,
+        _ publisher: AnyPublisher<T, ServiceError>
+    ) -> Publishers.FlatMap<AnyPublisher<T, ServiceError>, Self> {
+        
+        self.flatMap{
+            if predicate($0) == false {
+                return Fail<T, ServiceError>(error: .chainingError)
+                    .eraseToAnyPublisher()
+            }
+            
+            return publisher
+        }
+    }
+    
 }
 

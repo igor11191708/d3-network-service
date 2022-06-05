@@ -11,6 +11,9 @@ import Foundation
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 6.0, *)
 public enum ServiceError: Error, Hashable {
   
+    /// describe errors while chaning
+    case chainingError
+    
     /// input data could not be formed
     case inputDataError
     
