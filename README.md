@@ -143,6 +143,18 @@ Pass a [String: CustomStringConvertible] dictionary to the parameter that avalab
     let publisher: Output = network.execute(with: cfg)
 ```    
 
+### Chaining requests
+```swift
+        let readCfg = UserRestAPI.index
+        let read: Output = network.execute(with: readCfg, ["page": 0, "pageSize": 25])
+
+        let createCfg = UserRestAPI.create
+        let user = Model(id: 11, name: "Igor")
+        let create: Output = network.execute(body: user, with: createCfg, ["copy": true])
+        
+        read
+            .then(create)
+```    
 
 ## Package installation 
 In Xcode - Select `Xcode`>`File`> `Swift Packages`>`Add Package Dependency...`  

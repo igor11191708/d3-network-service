@@ -12,17 +12,17 @@ import Foundation
 /// (data: Data, response: URLResponse)
 extension Publisher where Output == URLSession.DataTaskPublisher.Output {
 
-    
+
     typealias ResponseData = Publishers.TryMap<Self, Data>
-    
+
     /// Transforms all elements from the upstream publisher with a provided error-throwing closure
     /// - Returns: A publisher that uses the provided closure to map elements from the upstream publisher to new elements that it then publishes
-    func tryResponse(_ logger : ILogger? = nil) -> ResponseData {
+    func tryResponse(_ logger: ILogger? = nil) -> ResponseData {
 
         tryMap { data, response -> Data in
-           
+
             logger?.log(response)
-            
+
             guard let httpResponse = response as? HTTPURLResponse else {
                 throw ServiceError.invalidResponse(response)
             }
@@ -40,14 +40,14 @@ extension Publisher {
 
     /// Decodes the output from the upstream using a specified decoder
     /// - Returns: A publisher that decodes a given type using a specified decoder and publishes the result
-    func decode<T, D>(with decoder: D) -> Publishers.Decode<Self, T, D> where T : Decodable, D : TopLevelDecoder, Self.Output == D.Input, Output == Data {
+    func decode<T, D>(with decoder: D) -> Publishers.Decode<Self, T, D> where T: Decodable, D: TopLevelDecoder, Self.Output == D.Input, Output == Data {
 
         decode(type: T.self, decoder: decoder)
     }
 
-    
+
     typealias MappedError = Publishers.MapError<Self, ServiceError>
-    
+
     /// Converts any failure from the upstream publisher into a new ``ServiceError``
     /// - Returns: A publisher that replaces any upstream failure with a new error produced by the transform closure
     func mapServiceError() -> MappedError {
@@ -70,4 +70,15 @@ extension Publisher {
     }
 }
 
+public extension Publisher {    
+    
+    
+    /// Create serial chain with two publishers
+    /// - Parameter publisher: Publisher to chain
+    /// - Returns: New chained publisher
+    func then<T: Decodable>(_ publisher: AnyPublisher<T, ServiceError>) -> Publishers.FlatMap<AnyPublisher<T, ServiceError>, Self> {
+
+        self.flatMap { value in publisher }
+    }
+}
 
