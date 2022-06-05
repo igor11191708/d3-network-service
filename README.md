@@ -150,7 +150,7 @@ Pass a [String: CustomStringConvertible] dictionary to the parameter that avalab
 
         let createCfg = UserRestAPI.create
         let user = Model(id: 11, name: "Igor")
-        let create: Output = network.execute(body: user, with: createCfg, ["copy": true])
+        let create: Output = network.execute(body: user, with: createCfg)
         
         read
             .then(create)
