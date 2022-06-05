@@ -118,7 +118,7 @@ Pass a [String: CustomStringConvertible] dictionary to the parameter that avalab
 ```swift
    let cfg = UserRestAPI.read(id: 1)
    
-   let publisher = network.execute(with: cfg, ["token" : 65678])
+   let publisher: Output = network.execute(with: cfg, ["token" : 65678])
 ```
 
 ### Create
@@ -126,29 +126,29 @@ Pass a [String: CustomStringConvertible] dictionary to the parameter that avalab
     let cfg = UserRestAPI.create
     let user = Model(id: 11, name: "Igor")
 
-    let publisher = network.execute(body: user, with: cfg)
+    let publisher: Output = network.execute(body: user, with: cfg)
 ```
 ### Update
 ```swift
     let cfg = UserRestAPI.update
     let user = Model(id: 11, name: "Igor")    
 
-    let publisher = network.execute(body: user, with: cfg)
+    let publisher: Output = network.execute(body: user, with: cfg)
 ```
 
 ### Delete
 ```swift
     let cfg = UserRestAPI.delete(id: 11)
     
-    let publisher = network.execute(with: cfg)
+    let publisher: Output = network.execute(with: cfg)
 ```    
 
 ### Chaining requests (Serial queue)
 ```swift
-        let read = network.execute(with: UserRestAPI.index)
+        let read: Output = network.execute(with: UserRestAPI.index)
 
         let user = Model(id: 11, name: "Igor")
-        let create = network.execute(body: user, with: UserRestAPI.create)
+        let create: Output = network.execute(body: user, with: UserRestAPI.create)
         
         read
             .then(create)
