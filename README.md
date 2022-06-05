@@ -152,8 +152,7 @@ Pass a [String: CustomStringConvertible] dictionary to the parameter that avalab
         let user = Model(id: 11, name: "Igor")
         let create: Output = network.execute(body: user, with: UserRestAPI.create)
         
-        read
-            .then(create)
+        read.then(create)
             
         // or chain it using predicate to analyze previous result
         
