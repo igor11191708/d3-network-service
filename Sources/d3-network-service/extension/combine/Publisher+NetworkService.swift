@@ -70,6 +70,7 @@ extension Publisher {
     }
 }
 
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 6.0, *)
 public extension Publisher {
     
     /// Create serial chain with two publishers
