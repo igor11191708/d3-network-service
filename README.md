@@ -10,6 +10,7 @@ Easy and lightweight network service from scratch. Reactive wrapper for **URLSes
 - [x] Customizable for different requests schemes from classic **CRUD Rest** to what suits to your own custom routes
 - [x] Based on interfaces not implementations
 - [x] Ability to log and customize logers for different environment
+- [x] Ability to chain requests layering with predicate logic analyse previous result
 
 ## 1. Environment
 Define **enum** with interface [**IEnvironment**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/protocol/data/IEnvironment.swift)
