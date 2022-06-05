@@ -1,5 +1,5 @@
 //
-//  Publisher+NetworkService.swift
+//  TryResponse.swift
 //
 //
 //  Created by Igor Shelopaev on 25.05.2022.
