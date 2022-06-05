@@ -70,8 +70,7 @@ extension Publisher {
     }
 }
 
-public extension Publisher {    
-    
+public extension Publisher {
     
     /// Create serial chain with two publishers
     /// - Parameter publisher: Publisher to chain

@@ -143,7 +143,7 @@ Pass a [String: CustomStringConvertible] dictionary to the parameter that avalab
     let publisher = network.execute(with: cfg)
 ```    
 
-### Chaining requests
+### Chaining requests (Serial queue)
 ```swift
         let read = network.execute(with: UserRestAPI.index)
 
