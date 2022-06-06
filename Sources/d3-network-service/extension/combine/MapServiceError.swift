@@ -10,11 +10,9 @@ import Foundation
 
 extension Publisher {
 
-    typealias MappedError = Publishers.MapError<Self, ServiceError>
-
     /// Converts any failure from the upstream publisher into a new ``ServiceError``
     /// - Returns: A publisher that replaces any upstream failure with a new error produced by the transform closure
-    func mapServiceError() -> MappedError {
+    func mapServiceError() -> AnyPublisher<Self.Output, ServiceError> {
 
         mapError { error -> ServiceError in
 
@@ -30,6 +28,7 @@ extension Publisher {
             }
 
             return definedError
-        }
+            
+        }.eraseToAnyPublisher()
     }
 }
