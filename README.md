@@ -158,7 +158,8 @@ Pass a [String: CustomStringConvertible] dictionary to the parameter that avalab
         read.then(ifTrue : {$0.count > 1}, create)
 ```    
 
-### Do in parallel infinite amount of requests collecting their results in Array and waiting until they are all done
+### Do in parallel infinite amount of requests 
+Collecting their results in Array and waiting until they are all done
 > All requests are expected the same output and failure
 
 ```swift
