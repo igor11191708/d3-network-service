@@ -21,8 +21,7 @@ public extension Collection where Element: Publisher, Self.Index == Int {
 
         let c: [ZipResult] = map { $0.map { [$0] }.eraseToAnyPublisher() }
 
-        return chunked(c).first ?? Empty().eraseToAnyPublisher()
-
+        return chunked(c).first ?? Empty().eraseToAnyPublisher() //despite that we checked empty decided to do it safe
     }
 
 }
@@ -31,7 +30,10 @@ public extension Collection where Element: Publisher, Self.Index == Int {
 
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 6.0, *)
 private extension Collection where Element: Publisher, Self.Index == Int {
-
+    
+    /// Quantize and zip try by four
+    /// - Parameter array: elements we will quantize and zip
+    /// - Returns: zipped elements
     func chunked(_ array: [ZipResult]) -> [ZipResult] {
 
         var r: [ZipResult] = []
@@ -49,7 +51,8 @@ private extension Collection where Element: Publisher, Self.Index == Int {
                 } else if a.count == 3 {
                     r += [Publishers.Zip3(f, a[1], a[2]).map { $0.0 + $0.1 + $0.2 }.eraseToAnyPublisher()]
                 } else if a.count == 4 {
-                    r += [Publishers.Zip4(f, a[1], a[2], a[3]).map { $0.0 + $0.1 + $0.2 + $0.3 }.eraseToAnyPublisher()]
+                    r += [Publishers.Zip4(f, a[1], a[2], a[3]).map { $0.0 + $0.1 + $0.2 + $0.3 }
+                    .eraseToAnyPublisher()]
                 }
             }
         }

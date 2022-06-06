@@ -20,8 +20,6 @@ public extension Publisher {
             .eraseToAnyPublisher()
     }
 
-
-
     /// Chain publishers with predicate logic
     /// - Parameters:
     ///   - predicate: Analyze previous result
