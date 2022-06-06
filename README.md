@@ -11,6 +11,7 @@ Easy and lightweight network layer. Reactive wrapper for **URLSession.shared.dat
 - [x] Based on interfaces not implementations
 - [x] Ability to log and customize logers for different environment
 - [x] Ability to chain requests layering with predicate logic analyzing previous result
+- [x] Do in parallel infinite amount of requests collecting their results in Array and waiting until they are all done
 
 ## 1. Environment
 Define **enum** with interface [**IEnvironment**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/protocol/data/IEnvironment.swift)
