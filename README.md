@@ -158,6 +158,15 @@ Pass a [String: CustomStringConvertible] dictionary to the parameter that avalab
         read.then(ifTrue : {$0.count > 1}, create)
 ```    
 
+### Do in parallel infinite amount of requests collecting their results in Array
+important**   All requests are expected same output and failure
+
+```swift
+       [read, create, delete, update, read, read ].zipper
+``` 
+
+       
+
 ## Package installation 
 In Xcode - Select `Xcode`>`File`> `Swift Packages`>`Add Package Dependency...`  
 and add `https://github.com/The-Igor/d3-network-service`
