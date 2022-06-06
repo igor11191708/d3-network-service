@@ -159,7 +159,7 @@ Pass a [String: CustomStringConvertible] dictionary to the parameter that avalab
 ```    
 
 ### Do in parallel infinite amount of requests collecting their results in Array
-important**   All requests are expected same output and failure
+***  All requests are expected same output and failure ***
 
 ```swift
        [read, create, delete, update, read, read ].zipper
