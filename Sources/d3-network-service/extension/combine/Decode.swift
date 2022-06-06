@@ -8,11 +8,11 @@
 import Combine
 import Foundation
 
-extension Publisher {
+extension Publisher where Output == Data {
 
     /// Decodes the output from the upstream using a specified decoder
     /// - Returns: A publisher that decodes a given type using a specified decoder and publishes the result
-    func decode<T, D>(with decoder: D) -> AnyPublisher<T, Error> where T: Decodable, D: TopLevelDecoder, Self.Output == D.Input, Output == Data {
+    func decode<T, D>(with decoder: D) -> AnyPublisher<T, Error> where T: Decodable, D: TopLevelDecoder, Output == D.Input  {
 
         decode(type: T.self, decoder: decoder)
             .eraseToAnyPublisher()

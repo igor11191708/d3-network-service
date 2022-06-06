@@ -14,7 +14,7 @@ public extension Publisher {
     /// Create serial chain with two publishers
     /// - Parameter publisher: Publisher to chain
     /// - Returns: New publisher
-    func then<T: Decodable>(_ publisher: AnyPublisher<T, ServiceError>) -> AnyPublisher<T, ServiceError> where Self.Failure == ServiceError{
+    func then<T: Decodable>(_ publisher: AnyPublisher<T, ServiceError>) -> AnyPublisher<T, ServiceError> where Failure == ServiceError{
 
         flatMap { value in publisher }
             .eraseToAnyPublisher()
@@ -31,7 +31,7 @@ public extension Publisher {
         ifTrue: @escaping (Self.Output) -> Bool,
         _ publisher: AnyPublisher<T, ServiceError>
     ) ->
-    AnyPublisher<T, ServiceError> where Self.Failure == ServiceError{
+    AnyPublisher<T, ServiceError> where Failure == ServiceError{
 
         flatMap { (value : Self.Output) -> AnyPublisher<T, ServiceError> in
             if ifTrue(value) == false {
