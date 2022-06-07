@@ -144,7 +144,7 @@ Pass a [String: CustomStringConvertible] dictionary to the parameter that avalab
     
     let publisher: Output = network.execute(with: cfg)
 ```    
-## 4. Manage requests via operators
+## 4. Manage requests
 
 ### Chaining requests (Serial queue)
 ```swift
