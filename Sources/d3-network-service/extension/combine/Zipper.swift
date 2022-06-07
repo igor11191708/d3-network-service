@@ -11,10 +11,8 @@ import Foundation
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 6.0, *)
 public extension Collection where Element: Publisher, Self.Index == Int {
 
-    typealias ZippedResult = AnyPublisher<[Element.Output], Element.Failure>
-
     /// Zip an array of publishers with the same output and failure
-    var zipper: ZippedResult {
+    var zipper: AnyPublisher<[Element.Output], Element.Failure> {
         if let result = chunk(wrapInArray).first {
             return result
         }
@@ -25,6 +23,8 @@ public extension Collection where Element: Publisher, Self.Index == Int {
 
 private extension Collection where Element: Publisher, Self.Index == Int {
 
+    typealias ZippedResult = AnyPublisher<[Element.Output], Element.Failure>
+    
     var wrapInArray: [ZippedResult] {
         map { $0.map { [$0] }.erase() }
     }
