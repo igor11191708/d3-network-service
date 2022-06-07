@@ -16,7 +16,7 @@ public extension Collection where Element: Publisher, Self.Index == Int {
             return result
         }
 
-        return Empty().erase()
+        return Empty().eraseToAnyPublisher()
     }
 }
 
@@ -43,9 +43,9 @@ private extension Collection where Element: Publisher, Self.Index == Int {
         arr.forEach { a in
             if let f = a.first {
                 switch(a.count) {
-                    case 2: r += [p.Zip(f, a[1]).map { $0.0 + $0.1 }.erase()]
-                    case 3: r += [p.Zip3(f, a[1], a[2]).map { $0.0 + $0.1 + $0.2 }.erase()]
-                    case 4: r += [p.Zip4(f, a[1], a[2], a[3]).map { $0.0 + $0.1 + $0.2 + $0.3 }.erase()]
+                    case 2: r += [p.Zip(f, a[1]).map { $0.0 + $0.1 }.eraseToAnyPublisher()]
+                    case 3: r += [p.Zip3(f, a[1], a[2]).map { $0.0 + $0.1 + $0.2 }.eraseToAnyPublisher()]
+                    case 4: r += [p.Zip4(f, a[1], a[2], a[3]).map { $0.0 + $0.1 + $0.2 + $0.3 }.eraseToAnyPublisher()]
                     default: r += [f]
                 }
             }
@@ -55,8 +55,4 @@ private extension Collection where Element: Publisher, Self.Index == Int {
 
         return r
     }
-}
-
-fileprivate extension Publisher {
-    func erase() -> AnyPublisher<Self.Output, Self.Failure> { eraseToAnyPublisher() }
 }
