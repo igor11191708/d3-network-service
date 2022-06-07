@@ -8,7 +8,6 @@
 import Combine
 import Foundation
 
-
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 6.0, *)
 public extension Collection where Element: Publisher, Self.Index == Int {
 
