@@ -16,26 +16,25 @@ public extension Collection where Element: Publisher, Self.Index == Int {
 
     /// Zip an array of publishers with the same output and failure
     var zipper: ZipResult {
-        if let result = chunked(wrapElmInArray).first {
+        if let result = chunk(wrapInArray).first {
             return result
         }
 
-        return Empty().eraseToAnyPublisher()
+        return Empty().erase()
     }
 }
 
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 6.0, *)
 private extension Collection where Element: Publisher, Self.Index == Int {
 
-    /// Wrap every publisher result in array
-    var wrapElmInArray: [ZipResult] {
-        map { $0.map { [$0] }.eraseToAnyPublisher() }
+    var wrapInArray: [ZipResult] {
+        map { $0.map { [$0] }.erase() }
     }
 
     /// Quantize and zip try by four
     /// - Parameter array: elements we will quantize and zip
     /// - Returns: zipped elements
-    func chunked(_ array: [ZipResult]) -> [ZipResult] {
+    func chunk(_ array: [ZipResult]) -> [ZipResult] {
 
         var r: [ZipResult] = []
 
@@ -48,20 +47,27 @@ private extension Collection where Element: Publisher, Self.Index == Int {
                 if a.count == 1 {
                     r += [f]
                 } else if a.count == 2 {
-                    r += [Publishers.Zip(f, a[1]).map { $0.0 + $0.1 }.eraseToAnyPublisher()]
+                    r += [Publishers.Zip(f, a[1]).map { $0.0 + $0.1 }.erase()]
                 } else if a.count == 3 {
-                    r += [Publishers.Zip3(f, a[1], a[2]).map { $0.0 + $0.1 + $0.2 }.eraseToAnyPublisher()]
+                    r += [Publishers.Zip3(f, a[1], a[2]).map { $0.0 + $0.1 + $0.2 }.erase()]
                 } else if a.count == 4 {
                     r += [Publishers.Zip4(f, a[1], a[2], a[3]).map { $0.0 + $0.1 + $0.2 + $0.3 }
-                            .eraseToAnyPublisher()]
+                            .erase()]
                 }
             }
         }
 
-        if r.count > 1 { r = chunked(r) }
+        if r.count > 1 { r = chunk(r) } // recursion
 
         return r
     }
+    
+   
 }
+
+fileprivate extension Publisher {
+    func erase() -> AnyPublisher<Self.Output, Self.Failure> { eraseToAnyPublisher() }
+}
+
 
 
