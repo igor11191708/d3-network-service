@@ -29,7 +29,7 @@ private extension Collection where Element: Publisher, Self.Index == Int {
         map { $0.map { [$0] }.erase() }
     }
 
-    /// Quantize and zip try by four
+    /// Quantize and zip
     /// - Parameter array: Elements we will quantize and zip
     /// - Returns: Zipped elements
     func chunk(_ array: [ZipResult]) -> [ZipResult] {
@@ -64,6 +64,3 @@ private extension Collection where Element: Publisher, Self.Index == Int {
 fileprivate extension Publisher {
     func erase() -> AnyPublisher<Self.Output, Self.Failure> { eraseToAnyPublisher() }
 }
-
-
-
