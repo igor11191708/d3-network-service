@@ -23,18 +23,18 @@ public extension Collection where Element: Publisher, Self.Index == Int {
 
 private extension Collection where Element: Publisher, Self.Index == Int {
 
-    typealias Result = AnyPublisher<[Element.Output], Element.Failure>
+    typealias ZippedResult = AnyPublisher<[Element.Output], Element.Failure>
     
-    var wrapInArray: [Result] {
+    var wrapInArray: [ZippedResult] {
         map { $0.map { [$0] }.erase() }
     }
 
     /// Quantize and zip
     /// - Parameter array: Elements we will quantize and zip
     /// - Returns: Zipped elements
-    func chunk(_ array: [Result]) -> [Result] {
+    func chunk(_ array: [ZippedResult]) -> [ZippedResult] {
 
-        var r: [Result] = []
+        var r: [ZippedResult] = []
         let P = Publishers.self
         
         //Try quantize by four
