@@ -30,8 +30,8 @@ private extension Collection where Element: Publisher, Self.Index == Int {
     }
 
     /// Quantize and zip try by four
-    /// - Parameter array: elements we will quantize and zip
-    /// - Returns: zipped elements
+    /// - Parameter array: Elements we will quantize and zip
+    /// - Returns: Zipped elements
     func chunk(_ array: [ZipResult]) -> [ZipResult] {
 
         var r: [ZipResult] = []
@@ -41,7 +41,7 @@ private extension Collection where Element: Publisher, Self.Index == Int {
             Array(array[$0 ..< Swift.min($0 + 4, array.count)])
         }
 
-        //Zip quant
+        //Zip quants
         arr.forEach { a in
             let p = Publishers.self
 
