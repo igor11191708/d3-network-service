@@ -11,10 +11,10 @@ import Foundation
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 6.0, *)
 public extension Collection where Element: Publisher, Self.Index == Int {
 
-    typealias ZipResult = AnyPublisher<[Element.Output], Element.Failure>
+    typealias ZippedResult = AnyPublisher<[Element.Output], Element.Failure>
 
     /// Zip an array of publishers with the same output and failure
-    var zipper: ZipResult {
+    var zipper: ZippedResult {
         if let result = chunk(wrapInArray).first {
             return result
         }
@@ -25,16 +25,16 @@ public extension Collection where Element: Publisher, Self.Index == Int {
 
 private extension Collection where Element: Publisher, Self.Index == Int {
 
-    var wrapInArray: [ZipResult] {
+    var wrapInArray: [ZippedResult] {
         map { $0.map { [$0] }.erase() }
     }
 
     /// Quantize and zip
     /// - Parameter array: Elements we will quantize and zip
     /// - Returns: Zipped elements
-    func chunk(_ array: [ZipResult]) -> [ZipResult] {
+    func chunk(_ array: [ZippedResult]) -> [ZippedResult] {
 
-        var r: [ZipResult] = []
+        var r: [ZippedResult] = []
 
         //Try quantize by four
         let arr = stride(from: 0, to: array.count, by: 4).map {
