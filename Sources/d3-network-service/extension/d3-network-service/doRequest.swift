@@ -41,8 +41,7 @@ extension INetwork {
         /// prepare body
         do {
             httpBody = try encoder.encode(body)
-        }
-        catch {
+        }catch {
             return inputDataErrorPublisher()
         }
 
