@@ -144,6 +144,7 @@ Pass a [String: CustomStringConvertible] dictionary to the parameter that avalab
     
     let publisher: Output = network.execute(with: cfg)
 ```    
+## 4. Manage requests via operators
 
 ### Chaining requests (Serial queue)
 ```swift
@@ -167,7 +168,9 @@ Collecting their results in Array and waiting until they are all done
        [read, create, delete, update, read, read ].zipper
 ``` 
 
-       
+## 5. Embedding in architecture
+[MVVM SwiftUI](https://github.com/The-Igor/d3-network-service/blob/main/img/swiftui_mvvm_architecture.png)
+   
 
 ## Package installation 
 In Xcode - Select `Xcode`>`File`> `Swift Packages`>`Add Package Dependency...`  
