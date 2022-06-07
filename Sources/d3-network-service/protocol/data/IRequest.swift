@@ -72,7 +72,7 @@ extension IRequest {
             return nil
         }
 
-        urlComponents.path = urlComponents.path + route
+        urlComponents.path += route
 
         urlComponents.queryItems = queryItems(parameters)
 
