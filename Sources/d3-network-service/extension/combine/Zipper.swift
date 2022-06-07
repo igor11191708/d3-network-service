@@ -36,7 +36,7 @@ private extension Collection where Element: Publisher, Self.Index == Int {
 
         var r: [ZipResult] = []
 
-        //Quantize by four
+        //Try quantize by four
         let arr = stride(from: 0, to: array.count, by: 4).map {
             Array(array[$0 ..< Swift.min($0 + 4, array.count)])
         }
