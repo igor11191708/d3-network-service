@@ -24,7 +24,7 @@ private extension Collection where Element: Publisher, Self.Index == Int {
 
     typealias ZippedResult = AnyPublisher<[Element.Output], Element.Failure>
     
-    var zipInArray: [ZippedResult] { map { $0.map { [$0] }.erase() } }
+    var zipInArray: [ZippedResult] { map { $0.map { [$0] }.eraseToAnyPublisher() } }
 
     /// Quantize and zip
     /// - Parameter array: Elements we will quantize and zip
