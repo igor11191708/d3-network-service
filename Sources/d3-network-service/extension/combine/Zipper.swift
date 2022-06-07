@@ -47,10 +47,10 @@ private extension Collection where Element: Publisher, Self.Index == Int {
 
             if let f = a.first {
                 switch(a.count) {
-                case 2: r += [p.Zip(f, a[1]).map { $0.0 + $0.1 }.erase()]
-                case 3: r += [p.Zip3(f, a[1], a[2]).map { $0.0 + $0.1 + $0.2 }.erase()]
-                case 4: r += [p.Zip4(f, a[1], a[2], a[3]).map { $0.0 + $0.1 + $0.2 + $0.3 }.erase()]
-                default: r += [f]
+                    case 2: r += [p.Zip(f, a[1]).map { $0.0 + $0.1 }.erase()]
+                    case 3: r += [p.Zip3(f, a[1], a[2]).map { $0.0 + $0.1 + $0.2 }.erase()]
+                    case 4: r += [p.Zip4(f, a[1], a[2], a[3]).map { $0.0 + $0.1 + $0.2 + $0.3 }.erase()]
+                    default: r += [f]
                 }
             }
         }
