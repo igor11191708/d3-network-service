@@ -34,12 +34,12 @@ private extension Collection where Element: Publisher, Self.Index == Int {
         let p = Publishers.self
         
         //Try quantize by four
-        let arr = stride(from: 0, to: array.count, by: 4).map {
+        let quantized = stride(from: 0, to: array.count, by: 4).map {
             Array(array[$0 ..< Swift.min($0 + 4, array.count)])
         }
 
         //Zip quants
-        arr.forEach { a in
+        quantized.forEach { a in
             if let f = a.first {
                 switch(a.count) {
                     case 2: r += [p.Zip(f, a[1]).map { $0.0 + $0.1 }.eraseToAnyPublisher()]
