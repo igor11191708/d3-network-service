@@ -13,7 +13,7 @@ public extension Collection where Element: Publisher, Self.Index == Int {
 
     /// Zip an array of publishers with the same output and failure
     var zipper: AnyPublisher<[Element.Output], Element.Failure> {
-        if let result = chunk(wrapInArray).first {
+        if let result = chunk(zipInArray).first {
             return result
         }
 
@@ -25,7 +25,7 @@ private extension Collection where Element: Publisher, Self.Index == Int {
 
     typealias ZippedResult = AnyPublisher<[Element.Output], Element.Failure>
     
-    var wrapInArray: [ZippedResult] {
+    var zipInArray: [ZippedResult] {
         map { $0.map { [$0] }.erase() }
     }
 
