@@ -44,15 +44,16 @@ private extension Collection where Element: Publisher, Self.Index == Int {
         //Zip quant
         arr.forEach { a in
             let p = Publishers.self
-            
+            let c = a.count
+
             if let f = a.first {
-                if a.count == 1 {
+                if c == 1 {
                     r += [f]
-                } else if a.count == 2 {
+                } else if c == 2 {
                     r += [p.Zip(f, a[1]).map { $0.0 + $0.1 }.erase()]
-                } else if a.count == 3 {
+                } else if c == 3 {
                     r += [p.Zip3(f, a[1], a[2]).map { $0.0 + $0.1 + $0.2 }.erase()]
-                } else if a.count == 4 {
+                } else if c == 4 {
                     r += [p.Zip4(f, a[1], a[2], a[3]).map { $0.0 + $0.1 + $0.2 + $0.3 }.erase()]
                 }
             }
