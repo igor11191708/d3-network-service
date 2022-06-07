@@ -169,7 +169,7 @@ Collecting their results in Array and waiting until they are all done
 ``` 
 
 ## 5. Embedding in architecture
-[![MVVM SwiftUI](https://github.com/The-Igor/d3-network-service/blob/main/img/swiftui_mvvm_architecture.png)]
+![MVVM SwiftUI](https://github.com/The-Igor/d3-network-service/blob/main/img/swiftui_mvvm_architecture.png)]
    
 
 ## Package installation 
