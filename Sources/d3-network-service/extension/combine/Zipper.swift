@@ -24,7 +24,6 @@ public extension Collection where Element: Publisher, Self.Index == Int {
     }
 }
 
-@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 6.0, *)
 private extension Collection where Element: Publisher, Self.Index == Int {
 
     var wrapInArray: [ZipResult] {
@@ -38,10 +37,12 @@ private extension Collection where Element: Publisher, Self.Index == Int {
 
         var r: [ZipResult] = []
 
+        //Quantize by four
         let arr = stride(from: 0, to: array.count, by: 4).map {
             Array(array[$0 ..< Swift.min($0 + 4, array.count)])
         }
 
+        //Zip quant
         arr.forEach { a in
             if let f = a.first {
                 if a.count == 1 {
@@ -61,8 +62,6 @@ private extension Collection where Element: Publisher, Self.Index == Int {
 
         return r
     }
-    
-   
 }
 
 fileprivate extension Publisher {
