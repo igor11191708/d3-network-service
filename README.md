@@ -193,5 +193,3 @@ To try it in the real environment. I suggest installing the basic NodeJS Express
 - You need to have Xcode 13 installed in order to have access to Documentation Compiler (DocC)
 - Go to Product > Build Documentation or **⌃⇧⌘ D**
 
-## Embedding in architecture
-![MVVM SwiftUI](https://github.com/The-Igor/d3-network-service/blob/main/img/swiftui_mvvm_architecture.png)
