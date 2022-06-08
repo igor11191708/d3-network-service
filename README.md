@@ -146,7 +146,7 @@ Pass a [String: CustomStringConvertible] dictionary to the parameter that avalab
 ```    
 ## 4. Managing requests
 
-### Chaining requests (Serial queue)
+### Chaining requests
 ```swift
         let read: Output = network.execute(with: UserRestAPI.index)
 
