@@ -10,7 +10,7 @@ import Combine
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 6.0, *)
 public extension Collection where Element: Publisher, Self.Index == Int {
     /// Zip an array of publishers with the same output and failure
-    var zipper: AnyPublisher<[Element.Output], Element.Failure> {
+    var doTogether: AnyPublisher<[Element.Output], Element.Failure> {
         if let result = chunk(zipInArray).first {
             return result
         }

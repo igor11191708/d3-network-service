@@ -165,7 +165,16 @@ Collecting their results in Array and waiting until they are all done
 > All requests are expected the same output and failure
 
 ```swift
-       [read, create, delete, update, read, read ].zipper
+       [read, create, delete, update, read, read ].doTogether
+``` 
+
+### Mixing    
+First **create** and **update** requests as a group and then **read**
+
+```swift
+       [create, update]
+                      .doTogether
+                      .then(read)
 ``` 
   
 
