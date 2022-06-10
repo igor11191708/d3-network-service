@@ -172,9 +172,13 @@ Collecting their results in Array and waiting until they are all done
 First **create** and **update** requests as a group and then **read**
 
 ```swift
-       [create, update]
-                      .doTogether
-                      .then(read)
+        [create, update]
+                       .doTogether
+                       .then(read)
+                      
+        [create, delete]
+                        .doTogether
+                        .then([delete, read].doTogether)               
 ``` 
   
 
