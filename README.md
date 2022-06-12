@@ -173,11 +173,11 @@ First **create** and **update** requests as a group and then **read**
 
 ```swift
         [create, update]
-                       .doTogether
+                       .waitEverybody
                        .then(read)
                       
         [create, delete]
-                        .doTogether
+                        .waitEverybody
                         .then([delete, read].doTogether)               
 ``` 
   
