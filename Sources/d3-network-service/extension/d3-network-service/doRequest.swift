@@ -9,12 +9,10 @@ import Combine
 import Foundation
 
 extension INetwork {
-
     /// Performe a request
     /// - Parameter request: Request data
     /// - Returns: Erased publisher with raw output and  ``ServiceError``  for failure
     func doRequest(_ request: URLRequest) -> AnyPublisher<Data, ServiceError> {
-
         let urlSession = getURLSession()
 
         logger?.log(request)
@@ -31,17 +29,17 @@ extension INetwork {
     ///  - body: The body of the request
     ///  - request: Config based on ``IEnvironment`` to create request
     /// - Returns: Erased publisher with decoded output and  ``ServiceError``  for failure
-    func doRequest<Input : Encodable>(
+    func doRequest<Input: Encodable>(
         body: Input,
         with request: IRequest,
-        _ parameters: RequestParameters? = nil) -> AnyPublisher<Data, ServiceError> {
-
+        _ parameters: RequestParameters? = nil
+    ) -> AnyPublisher<Data, ServiceError> {
         var httpBody: Data
 
         /// prepare body
         do {
             httpBody = try encoder.encode(body)
-        }catch {
+        } catch {
             return inputDataErrorPublisher()
         }
 
@@ -49,5 +47,4 @@ extension INetwork {
 
         return doRequest(request)
     }
-
 }

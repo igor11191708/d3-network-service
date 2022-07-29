@@ -1,6 +1,6 @@
 //
 //  MapServiceError.swift
-//  
+//
 //
 //  Created by Igor Shelopaev on 05.06.2022.
 //
@@ -9,11 +9,9 @@ import Combine
 import Foundation
 
 extension Publisher {
-
     /// Converts any failure from the upstream publisher into a new ``ServiceError``
     /// - Returns: A publisher that replaces any upstream failure with a new error produced by the transform closure
     func mapServiceError() -> AnyPublisher<Output, ServiceError> {
-
         mapError { error -> ServiceError in
 
             guard let definedError = error as? ServiceError else {
@@ -28,7 +26,7 @@ extension Publisher {
             }
 
             return definedError
-            
+
         }.eraseToAnyPublisher()
     }
 }

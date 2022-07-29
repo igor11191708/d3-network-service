@@ -5,7 +5,7 @@ Easy and lightweight network layer for creating different set of network request
 
 ## Features
 - [x] Stand alone package without any dependencies using just Apple's **Combine** facilities
-- [x] Error handling from forming URLRequest object to gettting data on a subscription
+- [x] Error handling from forming URLRequest object to getting data on a subscription
 - [x] Customizable for different environments development, production...
 - [x] Customizable for different requests schemes from classic **CRUD Rest** to what suits to your own custom routes
 - [x] Based on interfaces not implementations
@@ -49,7 +49,7 @@ enum Environment: IEnvironment {
 ### Request headers
 All headers for a request have to conform to the interface [**IRequestHeader**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/protocol/data/IRequestHeader.swift)
 
-The example implemetation for content type headers is here [**ContentType.swift**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/enum/ContentType.swift)
+The example implementation for content type headers is here [**ContentType.swift**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/enum/ContentType.swift)
 
 ### Logger
 You can use out of the box standard logger [**ServiceLogger**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/log/ServiceLogger.swift) if you don't need some specific data from [**URLRequest**](https://developer.apple.com/documentation/foundation/urlrequest) and [**URLResponse**](https://developer.apple.com/documentation/foundation/urlresponse) or define your own with interface [**ILogger**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/protocol/ILogger.swift)
@@ -98,7 +98,7 @@ extension UserRestAPI: IRequest {
 }
 ```
             
-The example implemetation is here **UserRestAPI.swift**
+The example implementation is here **UserRestAPI.swift**
 [**UserRestAPI.swift**](https://github.com/The-Igor/d3-network-service/blob/main/Sources/d3-network-service/example/config/UserRestAPI.swift)
 
 
@@ -108,12 +108,12 @@ The example implemetation is here **UserRestAPI.swift**
     let network = NetworkService(environment: Environment.development)
 ```
 
-- `execute` - Do request from the endpont configuration GET, POST, PUT, DELETE
+- `execute` - Do request from the endpoint configuration GET, POST, PUT, DELETE
 
 There are four methods are available currently  GET, POST, PUT, DELETE
 
 ### Parameters
-Pass a [String: CustomStringConvertible] dictionary to the parameter that avalable for GET, POST, PUT requests. It's an optinal parameter.
+Pass a [String: CustomStringConvertible] dictionary to the parameter that available for GET, POST, PUT requests. It's an optional parameter.
 
 ### Read
 
@@ -188,14 +188,14 @@ and add `https://github.com/The-Igor/d3-network-service`
 
 
 ## Try it in the real environment
-### Simple server instalation (mocking with NodeJS Express)
+### Simple server installation (mocking with NodeJS Express)
 
 To try it in the real environment. I suggest installing the basic NodeJS Express boilerplate. Take a look on the video snippet how easy it is to get it through Webstorm that is accessible for free for a trial period.
 
 [![Server instalation (NodeJS Express)](https://github.com/The-Igor/d3-network-service/blob/main/img/server_install.png)](https://youtu.be/9FPOYHzcE7A)
 
 - Get [**WebStorm Early Access**](https://www.jetbrains.com/webstorm/nextversion)
-- Get [**index.js**](https://github.com/The-Igor/d3-network-service/blob/main/js/index.js) file from here and replace it with the one in the boilerplate and luanch the server.
+- Get [**index.js**](https://github.com/The-Igor/d3-network-service/blob/main/js/index.js) file from here and replace it with the one in the boilerplate and launch the server.
 
 ### Real SwiftUI example
 [d3-rest-combine-swift-example](https://github.com/The-Igor/d3-rest-combine-swift-example)

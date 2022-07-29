@@ -1,6 +1,6 @@
 //
 //  RequestParameters.swift
-//  
+//
 //
 //  Created by Igor Shelopaev on 27.05.2022.
 //

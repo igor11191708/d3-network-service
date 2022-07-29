@@ -10,38 +10,33 @@
 import Foundation
 
 extension HTTPURLResponse {
-
     typealias StatusCode = Int
-
 }
 
 extension HTTPURLResponse.StatusCode {
-
     /// informational responses
-    static let informational = 100...199
+    static let informational = 100 ... 199
 
     /// successful responses
-    static let successful = 200...299
+    static let successful = 200 ... 299
 
     /// redirect responses
-    static let redirect = 300...399
+    static let redirect = 300 ... 399
 
     /// client error responses
-    static let clientError = 400...499
+    static let clientError = 400 ... 499
 
     /// server error responses
-    static let serverError = 500...599
-
+    static let serverError = 500 ... 599
 }
 
 extension HTTPURLResponse.StatusCode {
-    
     /// Define an error type according the status code
-    func mapError(_ httpURLResponse : HTTPURLResponse) -> ServiceError? {
+    func mapError(_ httpURLResponse: HTTPURLResponse) -> ServiceError? {
         switch self {
-        case 200...299: return nil
-        case 400...499: return ServiceError.clientError(httpURLResponse)
-        case 500...599: return ServiceError.serverError(httpURLResponse)
+        case 200 ... 299: return nil
+        case 400 ... 499: return ServiceError.clientError(httpURLResponse)
+        case 500 ... 599: return ServiceError.serverError(httpURLResponse)
         default: return ServiceError.http(httpURLResponse)
         }
     }

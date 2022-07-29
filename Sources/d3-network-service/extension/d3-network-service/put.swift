@@ -9,22 +9,20 @@ import Combine
 import Foundation
 
 extension INetwork {
-
     /// Send a put request
     /// - Parameters:
     ///  - body - The body of the request
     ///  - request - Config based on ``IEnvironment`` to create request
     ///  - parameters - Set of parameters
     /// - Returns: Erased publisher with decoded output and
-    func put<Input : Encodable, Output : Decodable>(
+    func put<Input: Encodable, Output: Decodable>(
         body: Input,
         with request: IRequest,
-        _ parameters: RequestParameters? = nil) -> AnyPublisher<Output, ServiceError> {
-
+        _ parameters: RequestParameters? = nil
+    ) -> AnyPublisher<Output, ServiceError> {
         return doRequest(body: body, with: request, parameters)
-            .decode(with: self.decoder)
+            .decode(with: decoder)
             .mapServiceError()
             .eraseToAnyPublisher()
     }
 }
-
